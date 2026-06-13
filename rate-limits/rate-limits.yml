@@ -1,0 +1,41 @@
+rateLimits:
+  - name: Data API Feed Rate
+    description: >-
+      The VATSIM Data API live network feed (data.vatsim.net) regenerates
+      every 15 seconds. Clients are expected to poll no more frequently than
+      once every 15 seconds. Polling more frequently returns cached data and
+      wastes bandwidth. This is a soft limit enforced by documentation
+      guidance rather than a hard throttle.
+    url: https://vatsim.dev/api/data-api/get-network-data/
+    limit: 4
+    unit: requests per minute
+    period: 60
+  - name: Core API
+    description: >-
+      No explicit rate limits are documented for the Core API
+      (api.vatsim.net/v2). The API requires authentication via APIv2 key for
+      member data access. Developers should follow responsible usage patterns
+      and contact the VATSIM Technology Team for high-volume use cases.
+    url: https://vatsim.dev/api/core-api/
+    limit: unspecified
+    unit: requests
+    period: unspecified
+  - name: METAR API
+    description: >-
+      No explicit rate limits are documented for the VATSIM METAR API.
+      The API supports bulk retrieval using comma-delimited ICAO codes or
+      the special "all" value, which reduces the need for multiple requests.
+      Developers should batch requests where possible.
+    url: https://vatsim.dev/api/metar-api/
+    limit: unspecified
+    unit: requests
+    period: unspecified
+  - name: Events API
+    description: >-
+      No explicit rate limits are documented for the VATSIM Events API.
+      Events data changes infrequently; clients should cache results and
+      poll at reasonable intervals rather than making frequent requests.
+    url: https://vatsim.dev/api/events-api/
+    limit: unspecified
+    unit: requests
+    period: unspecified

@@ -1,0 +1,142 @@
+name: VATSIM
+description: >-
+  VATSIM (Virtual Air Traffic Simulation Network) is a global online flight
+  simulation network providing real-time data about pilots, controllers, flight
+  plans, and ATC positions. The VATSIM REST APIs allow developers to access
+  live network data, member statistics, aviation weather, upcoming events, and
+  authentication services for the simulation community.
+image: https://vatsim.net/favicon.ico
+tags:
+  - Aviation
+  - Flight Simulation
+  - Air Traffic Control
+  - Real-Time Data
+  - Community
+url: https://vatsim.dev/services/apis/
+apis:
+  - name: VATSIM Core API
+    description: >-
+      RESTful API providing access to VATSIM member data including ratings,
+      statistics, flight plan history, and ATC position information. Supports
+      both public anonymized access and authenticated access for divisions and
+      subdivisions with full member data.
+    image: https://vatsim.net/favicon.ico
+    humanURL: https://vatsim.dev/api/core-api/
+    baseURL: https://api.vatsim.net/v2
+    tags:
+      - Members
+      - Ratings
+      - Statistics
+      - ATC
+    properties:
+      - type: Documentation
+        url: https://vatsim.dev/api/core-api/
+      - type: OpenAPI
+        url: https://api.vatsim.net/v2/openapi.json
+    contact:
+      - FN: VATSIM Technology Team
+        email: tech@vatsim.net
+  - name: VATSIM Data API
+    description: >-
+      Provides real-time data about the VATSIM network including all currently
+      connected pilots, controllers, ATIS broadcasts, and FSD servers. The
+      live data feed regenerates every 15 seconds and requires no
+      authentication. Data is sourced from DataServer, Transceiver/Voice API,
+      and ATIS clients.
+    image: https://vatsim.net/favicon.ico
+    humanURL: https://vatsim.dev/api/data-api/
+    baseURL: https://data.vatsim.net
+    tags:
+      - Pilots
+      - Controllers
+      - ATIS
+      - Live Data
+      - Network
+    properties:
+      - type: Documentation
+        url: https://vatsim.dev/api/data-api/
+      - type: OpenAPI
+        url: https://data.vatsim.net/openapi.json
+    contact:
+      - FN: VATSIM Technology Team
+        email: tech@vatsim.net
+  - name: VATSIM Events API
+    description: >-
+      Delivers information about upcoming events on the VATSIM network,
+      including dates, times, organizers, airports, routes, and banner images.
+      Publicly accessible without authentication and provides listing and
+      retrieval of scheduled network events.
+    image: https://vatsim.net/favicon.ico
+    humanURL: https://vatsim.dev/api/events-api/
+    baseURL: https://api.vatsim.net/v2/events
+    tags:
+      - Events
+      - Community
+      - Scheduling
+    properties:
+      - type: Documentation
+        url: https://vatsim.dev/api/events-api/
+    contact:
+      - FN: VATSIM Technology Team
+        email: tech@vatsim.net
+  - name: VATSIM METAR API
+    description: >-
+      Grants access to real-time METAR weather information for airports around
+      the world. Accepts single or comma-delimited ICAO airport codes, supports
+      a special "all" value for bulk retrieval, and returns data in either
+      plain text or JSON format. No authentication required.
+    image: https://vatsim.net/favicon.ico
+    humanURL: https://vatsim.dev/api/metar-api/
+    baseURL: https://metar.vatsim.net
+    tags:
+      - METAR
+      - Weather
+      - Aviation
+      - Airports
+    properties:
+      - type: Documentation
+        url: https://vatsim.dev/api/metar-api/
+    contact:
+      - FN: VATSIM Technology Team
+        email: tech@vatsim.net
+  - name: VATSIM Connect API
+    description: >-
+      OAuth 2.0 single sign-on authentication service for VATSIM members.
+      Enables third-party applications and VATSIM organizations to authenticate
+      users and access authorized profile data including full name, email,
+      VATSIM ratings, division membership, and country of residence.
+    image: https://vatsim.net/favicon.ico
+    humanURL: https://vatsim.dev/api/connect-api/
+    baseURL: https://auth.vatsim.net
+    tags:
+      - Authentication
+      - OAuth2
+      - SSO
+      - Identity
+    properties:
+      - type: Documentation
+        url: https://vatsim.dev/api/connect-api/vatsim-connect-api/
+    contact:
+      - FN: VATSIM Technology Team
+        email: tech@vatsim.net
+  - name: VATSIM Slurper API
+    description: >-
+      Provides real-time connection information for individual VATSIM users,
+      delivering live session data for a given VATSIM member. Publicly
+      accessible without authentication.
+    image: https://vatsim.net/favicon.ico
+    humanURL: https://vatsim.dev/api/slurper-api/
+    baseURL: https://api.vatsim.net/v2
+    tags:
+      - Users
+      - Connections
+      - Real-Time
+    properties:
+      - type: Documentation
+        url: https://vatsim.dev/api/slurper-api/
+    contact:
+      - FN: VATSIM Technology Team
+        email: tech@vatsim.net
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

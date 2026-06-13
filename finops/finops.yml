@@ -1,0 +1,27 @@
+finops:
+  description: >-
+    VATSIM is a non-profit volunteer organization. All public APIs are provided
+    free of charge with no usage fees, subscription tiers, or metered billing.
+    VATSIM is funded by voluntary donations from its community members.
+    Infrastructure costs are covered by the organization; there are no
+    commercial API monetization models in place.
+  url: https://vatsim.net/docs/policy/user-agreement
+  pricing:
+    model: free
+    cost: 0.00
+    currency: USD
+    billing: none
+  notes:
+    - All Data API, Events API, METAR API, and Slurper API endpoints are
+      publicly free with no authentication or account required
+    - Core API public (anonymized) access is free with no account required
+    - Core API authenticated access for divisions/subdivisions is free but
+      requires approval and an APIv2 key from the VATSIM Technology Team
+    - Connect API (OAuth2) is free for VATSIM organizations and approved
+      third-party developers
+    - No usage quotas, overage charges, or paid tiers exist
+    - VATSIM does not sell API access or data
+  contact:
+    name: VATSIM Technology Team
+    email: tech@vatsim.net
+    url: https://vatsim.dev/

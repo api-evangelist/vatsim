@@ -1,0 +1,34 @@
+plans:
+  - name: Free / Open Access
+    description: >-
+      All VATSIM public APIs (Data API, Events API, METAR API, Slurper API)
+      are freely available with no authentication required and no subscription
+      fees. The Core API offers public access to anonymized member data at no
+      cost. VATSIM is a non-profit community network funded by voluntary
+      donations.
+    url: https://vatsim.net/docs/policy/user-agreement
+    price: 0.00
+    currency: USD
+    features:
+      - Live network data feed (pilots, controllers, ATIS) - no auth required
+      - Real-time METAR weather for all airports - no auth required
+      - Upcoming events listing and retrieval - no auth required
+      - User connection data via Slurper API - no auth required
+      - Anonymized member statistics via Core API - no auth required
+      - OAuth2 Connect API for third-party app authentication
+  - name: Authenticated / Division Access
+    description: >-
+      VATSIM divisions and subdivisions can apply for elevated Core API access
+      to retrieve full (non-anonymized) member data including personal
+      information and detailed ratings. Access requires approval from the
+      VATSIM Technology Team and use of an APIv2 key passed via X-API-Key
+      header.
+    url: https://vatsim.dev/api/core-api/vatsim-api/
+    price: 0.00
+    currency: USD
+    features:
+      - Full member personal data access
+      - Division roster management
+      - Subdivision ATC position data
+      - APIv2 key authentication via X-API-Key header
+      - Legacy v1 token-based auth supported for backwards compatibility
