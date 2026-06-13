@@ -1,0 +1,86 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Organization",
+  "name": "VATSIM",
+  "description": "VATSIM (Virtual Air Traffic Simulation Network) is a global online flight simulation network providing real-time data about pilots, controllers, flight plans, and ATC positions. The VATSIM REST APIs allow developers to access live network data, member statistics, aviation weather, upcoming events, and authentication services for the simulation community.",
+  "image": "https://vatsim.net/favicon.ico",
+  "url": "https://vatsim.dev/services/apis/",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Technical Support",
+    "email": "tech@vatsim.net",
+    "name": "VATSIM Technology Team"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "VATSIM APIs",
+    "itemListElement": [
+      {
+        "@type": "SoftwareApplication",
+        "applicationCategory": "WebAPI",
+        "name": "VATSIM Core API",
+        "description": "RESTful API providing access to VATSIM member data including ratings, statistics, flight plan history, and ATC position information.",
+        "url": "https://vatsim.dev/api/core-api/",
+        "provider": {
+          "@type": "Organization",
+          "name": "VATSIM"
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "applicationCategory": "WebAPI",
+        "name": "VATSIM Data API",
+        "description": "Provides real-time data about the VATSIM network including all currently connected pilots, controllers, ATIS broadcasts, and FSD servers.",
+        "url": "https://vatsim.dev/api/data-api/",
+        "provider": {
+          "@type": "Organization",
+          "name": "VATSIM"
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "applicationCategory": "WebAPI",
+        "name": "VATSIM Events API",
+        "description": "Delivers information about upcoming events on the VATSIM network, including dates, times, organizers, airports, routes, and banner images.",
+        "url": "https://vatsim.dev/api/events-api/",
+        "provider": {
+          "@type": "Organization",
+          "name": "VATSIM"
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "applicationCategory": "WebAPI",
+        "name": "VATSIM METAR API",
+        "description": "Grants access to real-time METAR weather information for airports around the world.",
+        "url": "https://vatsim.dev/api/metar-api/",
+        "provider": {
+          "@type": "Organization",
+          "name": "VATSIM"
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "applicationCategory": "WebAPI",
+        "name": "VATSIM Connect API",
+        "description": "OAuth 2.0 single sign-on authentication service for VATSIM members.",
+        "url": "https://vatsim.dev/api/connect-api/",
+        "provider": {
+          "@type": "Organization",
+          "name": "VATSIM"
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "applicationCategory": "WebAPI",
+        "name": "VATSIM Slurper API",
+        "description": "Provides real-time connection information for individual VATSIM users.",
+        "url": "https://vatsim.dev/api/slurper-api/",
+        "provider": {
+          "@type": "Organization",
+          "name": "VATSIM"
+        }
+      }
+    ]
+  }
+}
