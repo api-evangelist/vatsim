@@ -141,3 +141,8 @@ maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
 modified: 2026-06-13
+common:
+  - type: Authentication
+    url: authentication/vatsim-authentication.yml
+  - type: OAuthScopes
+    url: scopes/vatsim-scopes.yml

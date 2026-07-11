@@ -1,0 +1,35 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/connect.yaml
+schemes:
+- name: connect
+  source: openapi/connect.yaml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: /oauth/authorize
+    tokenUrl: /oauth/token
+scopes:
+- scope: country
+  description: Read the user's country of residence
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/connect.yaml
+- scope: email
+  description: Read the user's email address
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/connect.yaml
+- scope: full_name
+  description: Read the user's full name
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/connect.yaml
+- scope: vatsim_details
+  description: Read the user's VATSIM ratings and divisions
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/connect.yaml
