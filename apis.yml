@@ -142,6 +142,8 @@ maintainers:
     email: kin@apievangelist.com
 modified: 2026-06-13
 common:
+  - type: DomainSecurity
+    url: security/vatsim-domain-security.yml
   - type: Authentication
     url: authentication/vatsim-authentication.yml
   - type: OAuthScopes

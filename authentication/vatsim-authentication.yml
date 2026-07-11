@@ -1,0 +1,38 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/connect.yaml, openapi/core-api.json
+summary:
+  types:
+  - apiKey
+  - oauth2
+  api_key_in:
+  - header
+  oauth2_flows:
+  - authorizationCode
+schemes:
+- name: connect
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: /oauth/authorize
+    tokenUrl: /oauth/token
+    scopes: 4
+  sources:
+  - openapi/connect.yaml
+- name: APIKeyAuth
+  type: apiKey
+  in: header
+  parameter: X-API-Key
+  description: Preferred method of authentication for APIv2. Use your APIv2 key here.
+  sources:
+  - openapi/core-api.json
+- name: LegacyAuth
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: |-
+    Preserved for backwards compatibility with API v1, **not recommended** for new integrations.
+
+    The same API key used in the `X-API-Key` header should be used here, but prefixed with `Token `.
+  sources:
+  - openapi/core-api.json
