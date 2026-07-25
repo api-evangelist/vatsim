@@ -1,0 +1,229 @@
+openapi: 3.1.0
+info:
+  title: VATSIM AIP Airport info orgs API
+  version: 2.0.0
+  termsOfService: https://vatsim.net/docs/policy/user-agreement
+  contact:
+    email: tech@vatsim.net
+    name: VATSIM Technology Team
+servers:
+- url: https://my.vatsim.net/api/v2/aip
+tags:
+- name: orgs
+paths:
+  /v2/orgs/subdivision/{subdivision_id}:
+    get:
+      operationId: orgs_api_subdivision_roster
+      summary: List a subdivision's members
+      parameters:
+      - in: path
+        name: subdivision_id
+        schema:
+          title: Subdivision Id
+          type: string
+        required: true
+      - in: query
+        name: include_inactive
+        schema:
+          title: Include Inactive
+          default: false
+          type: boolean
+        required: false
+      - in: query
+        name: limit
+        schema:
+          title: Limit
+          default: 100
+          minimum: 1
+          type: integer
+        required: false
+      - in: query
+        name: offset
+        schema:
+          title: Offset
+          default: 0
+          minimum: 0
+          type: integer
+        required: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PagedMember'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+      description: Returns a list of all active members of a subdivision.
+      tags:
+      - orgs
+      security:
+      - APIKeyAuth: []
+      - LegacyAuth: []
+  /v2/orgs/division/{division_id}:
+    get:
+      operationId: orgs_api_division_roster
+      summary: List a division's members
+      parameters:
+      - in: path
+        name: division_id
+        schema:
+          title: Division Id
+          type: string
+        required: true
+      - in: query
+        name: include_inactive
+        schema:
+          title: Include Inactive
+          default: false
+          type: boolean
+        required: false
+      - in: query
+        name: limit
+        schema:
+          title: Limit
+          default: 100
+          minimum: 1
+          type: integer
+        required: false
+      - in: query
+        name: offset
+        schema:
+          title: Offset
+          default: 0
+          minimum: 0
+          type: integer
+        required: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PagedMember'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+      description: Returns a list of all active members of a division.
+      tags:
+      - orgs
+      security:
+      - APIKeyAuth: []
+      - LegacyAuth: []
+components:
+  schemas:
+    NotFound:
+      title: NotFound
+      type: object
+      properties:
+        detail:
+          title: Detail
+          default: Not Found.
+          type: string
+    Message:
+      title: Message
+      description: Requests that produce an error use this schema
+      type: object
+      properties:
+        message:
+          title: Message
+          type: string
+      required:
+      - message
+    PagedMember:
+      title: PagedMember
+      type: object
+      properties:
+        items:
+          title: Items
+          type: array
+          items:
+            $ref: '#/components/schemas/Member'
+        count:
+          title: Count
+          type: integer
+      required:
+      - items
+      - count
+    Member:
+      title: Member
+      description: Only to be used for response validation as it is unprotected.
+      type: object
+      properties:
+        id:
+          title: Id
+          type: integer
+        name_first:
+          title: Name First
+          type: string
+        name_last:
+          title: Name Last
+          type: string
+        email:
+          title: Email
+          type: string
+        countystate:
+          title: Countystate
+          type: string
+        country:
+          title: Country
+          type: string
+        rating:
+          title: Rating
+          type: integer
+        pilotrating:
+          title: Pilotrating
+          default: 0
+          type: integer
+        militaryrating:
+          title: Militaryrating
+          default: 0
+          type: integer
+        susp_date:
+          title: Susp Date
+          type: string
+          format: date-time
+        reg_date:
+          title: Reg Date
+          type: string
+          format: date-time
+        region_id:
+          title: Region Id
+          type: string
+        division_id:
+          title: Division Id
+          type: string
+        subdivision_id:
+          title: Subdivision Id
+          type: string
+        lastratingchange:
+          title: Lastratingchange
+          type: string
+          format: date-time
+      required:
+      - id
+      - countystate
+      - country
+      - rating
+      - reg_date
+      - region_id
+      - division_id

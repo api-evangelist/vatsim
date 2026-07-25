@@ -1,0 +1,275 @@
+openapi: 3.1.0
+info:
+  title: VATSIM AIP Airport info OAuth2 API
+  version: 2.0.0
+  termsOfService: https://vatsim.net/docs/policy/user-agreement
+  contact:
+    email: tech@vatsim.net
+    name: VATSIM Technology Team
+servers:
+- url: https://my.vatsim.net/api/v2/aip
+tags:
+- name: OAuth2
+paths:
+  /oauth/authorize:
+    get:
+      tags:
+      - OAuth2
+      summary: Begin OAuth2 flow
+      description: Redirects the end user to the authorization page
+      operationId: redirect
+      parameters:
+      - name: response_type
+        in: query
+        description: Which authorization flow to use
+        required: true
+        schema:
+          type: string
+          enum:
+          - code
+          example: code
+      - name: client_id
+        in: query
+        description: Client ID
+        required: true
+        schema:
+          type: string
+          example: 123
+      - name: redirect_uri
+        in: query
+        description: Redirect URI (must match the one configured for the client)
+        schema:
+          type: string
+          example: https://example.com/auth/callback
+      - name: scope
+        in: query
+        description: Space-separated list of requested scopes
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - full_name
+            - email
+            - vatsim_details
+            - country
+          example:
+          - full_name
+          - email
+          - vatsim_details
+          - country
+        style: spaceDelimited
+      - name: state
+        in: query
+        description: Value used to maintain state between the request and the callback
+        schema:
+          type: string
+          example: F99a2qyUKz2JihHMewkLvAHExYhvhOfxsRjx0FY9
+      - name: prompt
+        in: query
+        description: 'How to prompt the user for reauthentication and/or consent
+
+
+          By default, the authorization server will not prompt the user for
+
+          reauthentication and will not prompt for consent if they have
+
+          already given it.
+
+
+          `none` will cause the request to return an error if the user is not
+
+          already logged in and has not given consent to the requested scopes.
+
+
+          `login` will force the user to reauthenticate even if they are
+
+          already signed in.
+
+
+          `consent` will cause the authorization server to prompt the user to
+
+          consent to the requested scopes even if they have already done so.'
+        schema:
+          type: string
+          enum:
+          - none
+          - login
+          - consent
+      responses:
+        '302':
+          description: Redirect to authorization page
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OAuthError'
+        '401':
+          description: Invalid client ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OAuthError'
+              example: "{\n  \"error\": \"invalid_client\",\n  \"error_description\": \"Client authentication failed\",\n  \"message\": \"Client authentication failed\"\n}"
+  /oauth/token:
+    post:
+      tags:
+      - OAuth2
+      summary: Request an access token
+      description: Returns an access token for the end user
+      operationId: getToken
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                grant_type:
+                  type: string
+                  description: 'Which grant type to use
+
+
+                    `authorization_code` and `refresh_token` are used by most clients
+
+
+                    `password` is only available with prior approval from VATSIM'
+                  enum:
+                  - authorization_code
+                  - password
+                  - refresh_token
+                  example: authorization_code
+                client_id:
+                  type: string
+                  description: Client ID
+                  example: 123
+                client_secret:
+                  type: string
+                  format: password
+                  description: Client secret
+                  example: S2A3O0LcsJvpZnefGYsOV7HpHpLv74nSKhHCltes
+                redirect_uri:
+                  type: string
+                  description: Redirect URI (must match the one provided in the authorization request)
+                  example: https://example.com/auth/callback
+                code:
+                  type: string
+                  description: 'Authorization code returned in the callback from the server
+
+
+                    Required when using the `authorization_code` grant'
+                scope:
+                  type: array
+                  items:
+                    type: string
+                    enum:
+                    - full_name
+                    - email
+                    - vatsim_details
+                    - country
+                  description: "Requested scopes\n\nRequired when using the `password` grant  \nOptional when using the `refresh_token` grant"
+                  example:
+                  - full_name
+                  - email
+                  - vatsim_details
+                  - country
+                username:
+                  type: string
+                  description: 'VATSIM ID of the user to authenticate
+
+
+                    Required when using the `password` grant'
+                  example: '1234567'
+                password:
+                  type: string
+                  format: password
+                  description: 'Password of the user to authenticate
+
+
+                    Required when using the `password` grant'
+                  example: K3nn3dy5teve!
+                refresh_token:
+                  type: string
+                  description: 'Refresh token issued in the original access token request
+
+
+                    Required when using the `refresh_token` grant'
+              required:
+              - grant_type
+              - client_id
+              - client_secret
+            encoding:
+              scope:
+                style: spaceDelimited
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OAuthError'
+components:
+  schemas:
+    Token:
+      type: object
+      properties:
+        token_type:
+          type: string
+          description: Token type
+          enum:
+          - Bearer
+          example: Bearer
+        expires_in:
+          type: integer
+          description: Access token lifetime (secs)
+          example: 604800
+        access_token:
+          type: string
+          description: Access token (validity specified in `expires_in`)
+        refresh_token:
+          type: string
+          description: Refresh token (valid for 30 days)
+        scopes:
+          type: array
+          items:
+            type: string
+            enum:
+            - full_name
+            - email
+            - vatsim_details
+            - country
+          description: Granted scopes
+          example:
+          - full_name
+          - email
+          - vatsim_details
+          - country
+    OAuthError:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error code
+          enum:
+          - invalid_request
+          - invalid_client
+          - invalid_grant
+          - unauthorized_client
+          - unsupported_grant_type
+        error_description:
+          type: string
+          description: Human-readable text providing additional information
+        message:
+          type: string
+          description: Human-readable text providing additional information
+          deprecated: true
+        hint:
+          type: string
+          description: Troubleshooting hint for the client developer

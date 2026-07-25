@@ -1,0 +1,158 @@
+openapi: 3.1.0
+info:
+  title: VATSIM AIP Airport info Audio API
+  version: 2.0.0
+  termsOfService: https://vatsim.net/docs/policy/user-agreement
+  contact:
+    email: tech@vatsim.net
+    name: VATSIM Technology Team
+servers:
+- url: https://my.vatsim.net/api/v2/aip
+tags:
+- name: Audio
+paths:
+  /transceivers-data.json:
+    get:
+      tags:
+      - Audio
+      summary: List online audio clients
+      description: Returns a list of all online audio clients. Re-generates every 15 seconds.
+      operationId: listAudioClients
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AudioClient'
+  /afv-atis-data.json:
+    get:
+      tags:
+      - Audio
+      summary: List online ATIS stations
+      description: Returns a list of all online ATIS stations. Re-generates every 15 seconds.
+      operationId: listATISStations
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AFVATIS'
+components:
+  schemas:
+    AudioClient:
+      type: object
+      properties:
+        callsign:
+          type: string
+          description: Client callsign
+          example: JFK_GND
+        transceivers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Transceiver'
+    Transceiver:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Transceiver ID
+          example: 0
+        frequency:
+          type: integer
+          description: Transceiver frequency (Hz)
+          example: 121900000
+        latDeg:
+          type: number
+          description: Transceiver latitude (deg)
+          example: 40.642445
+        lonDeg:
+          type: number
+          description: Transceiver longitude (deg)
+          example: -73.781358
+        heightMslM:
+          type: number
+          description: Transceiver height (m MSL)
+          example: 103
+        heightAglM:
+          type: number
+          description: Transceiver height (m AGL)
+          example: 99
+    AFVATIS:
+      type: object
+      properties:
+        cid:
+          type: integer
+          description: Controller's VATSIM ID
+          example: 1234567
+        name:
+          type: string
+          description: Controller's full name
+          example: Kennedy Steve
+        real_name:
+          type: string
+          description: ATIS connection name
+          example: vATIS connection for KJFK
+        callsign:
+          type: string
+          description: ATIS callsign
+          example: KJFK_ATIS
+        frequency:
+          type: string
+          description: ATIS frequency (MHz)
+          example: '128.725'
+        facility:
+          type: integer
+          description: ATIS facility ID
+          example: 0
+        rating:
+          type: integer
+          description: Controller's controller rating ID
+          example: 0
+        latitude:
+          type: number
+          description: ATIS latitude (deg)
+          example: 40.63975
+        longitude:
+          type: number
+          description: ATIS longitude (deg)
+          example: -73.778925
+        server:
+          type: string
+          description: Controller's current server ident
+          example: USA-EAST
+        visual_range:
+          type: integer
+          description: ATIS visual range (NM)
+          example: 0
+        atis_code:
+          type: string
+          description: Current ATIS phonetic letter
+          example: A
+        text_atis:
+          type: array
+          items:
+            type: string
+          description: Text ATIS
+          example:
+          - KJFK ATIS INFO A 0000Z. 20004KT 10SM SCT013 BKN060 OVC082 22/20
+          - A2992 (TWO NINER NINER TWO). APCH IN USE ILS RY 22L, ILS 22R.
+          - DEPTG RY 22R... BIRD ACTIVITY VICINITY ARPT. NUM CRANES
+          - OPERATING AT JFK. OPERATE XPDR ON MODE *C ON ALL TAXIWAYS AND
+          - RUNWAYS. READBACK ALL RWY HOLD SHORT INSTRUCTIONS....ADVS YOU
+          - HAVE INFO A
+        last_updated:
+          type: string
+          format: date-time
+          description: When this ATIS's status was last received
+          example: '1970-01-01T00:00:00.000000Z'
+        logon_time:
+          type: string
+          format: date-time
+          description: When this ATIS connected
+          example: '1970-01-01T00:00:00.000000Z'

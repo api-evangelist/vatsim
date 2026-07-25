@@ -1,29 +1,31 @@
 openapi: 3.1.0
 info:
-  title: VATSIM AIP API
+  title: VATSIM AIP Airport info API
   version: 2.0.0
   termsOfService: https://vatsim.net/docs/policy/user-agreement
   contact:
     email: tech@vatsim.net
     name: VATSIM Technology Team
 servers:
-  - url: https://my.vatsim.net/api/v2/aip
+- url: https://my.vatsim.net/api/v2/aip
+tags:
+- name: Airport info
 paths:
   /airports/{icao}:
     get:
       tags:
-        - Airport info
+      - Airport info
       summary: Get airport by ICAO
       description: Returns the airport with the specified ICAO.
       operationId: getAirport
       parameters:
-        - name: icao
-          in: path
-          description: Airport ICAO
-          schema:
-            type: string
-          example: KJFK
-          required: true
+      - name: icao
+        in: path
+        description: Airport ICAO
+        schema:
+          type: string
+        example: KJFK
+        required: true
       responses:
         '200':
           $ref: '#/components/responses/GetAirportResponse'
@@ -32,18 +34,18 @@ paths:
   /airports/{icao}/stations:
     get:
       tags:
-        - Airport info
+      - Airport info
       summary: List all stations for the airport
       description: Returns a list of all stations for the specified airport.
       operationId: listAirportStations
       parameters:
-        - name: icao
-          in: path
-          description: Airport ICAO
-          schema:
-            type: string
-          example: KJFK
-          required: true
+      - name: icao
+        in: path
+        description: Airport ICAO
+        schema:
+          type: string
+        example: KJFK
+        required: true
       responses:
         '200':
           $ref: '#/components/responses/ListAirportStationsResponse'
@@ -51,6 +53,17 @@ paths:
           $ref: '#/components/responses/NotFoundResponse'
 components:
   responses:
+    NotFoundResponse:
+      description: Resource Not Found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Message response
+                example: airport could not be found
     ListAirportStationsResponse:
       description: Successful operation
       content:
@@ -71,29 +84,26 @@ components:
             properties:
               data:
                 $ref: '#/components/schemas/Airport'
-    NotFoundResponse:
-      description: Resource Not Found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                description: Message response
-                example: airport could not be found
-    BadRequestResponse:
-      description: Bad request
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                description: Error message
-                example: Unable to process the request.
   schemas:
+    Station:
+      type: object
+      properties:
+        callsign:
+          type: string
+          description: Station callsign
+          example: JFK_TWR
+        name:
+          type: string
+          description: Station name
+          example: Kennedy Tower
+        frequency:
+          type: string
+          description: Station frequency
+          example: 119.1
+        ctaf:
+          type: boolean
+          description: True if the frequency should be used as CTAF when no ATC is online, false otherwise
+          example: true
     Airport:
       type: object
       properties:
@@ -146,22 +156,3 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Station'
-    Station:
-      type: object
-      properties:
-        callsign:
-          type: string
-          description: Station callsign
-          example: JFK_TWR
-        name:
-          type: string
-          description: Station name
-          example: Kennedy Tower
-        frequency:
-          type: string
-          description: Station frequency
-          example: 119.100
-        ctaf:
-          type: boolean
-          description: True if the frequency should be used as CTAF when no ATC is online, false otherwise
-          example: true

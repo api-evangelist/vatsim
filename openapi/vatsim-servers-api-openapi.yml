@@ -1,0 +1,104 @@
+openapi: 3.1.0
+info:
+  title: VATSIM AIP Airport info Servers API
+  version: 2.0.0
+  termsOfService: https://vatsim.net/docs/policy/user-agreement
+  contact:
+    email: tech@vatsim.net
+    name: VATSIM Technology Team
+servers:
+- url: https://my.vatsim.net/api/v2/aip
+tags:
+- name: Servers
+paths:
+  /vatsim-servers.json:
+    get:
+      tags:
+      - Servers
+      summary: List on-network FSD servers
+      description: Returns a list of all on-network FSD servers.
+      operationId: listLiveFSDServers
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FSDServer'
+              examples:
+                Live servers:
+                  value: "[\n  {\n    \"ident\": \"USA-EAST\",\n    \"hostname_or_ip\": \"192.0.2.10\",\n    \"location\": \"New York, USA\",\n    \"name\": \"USA-EAST\",\n    \"clients_connection_allowed\": 1,\n    \"client_connections_allowed\": true,\n    \"is_sweatbox\": false\n  }\n]"
+  /sweatbox-servers.json:
+    get:
+      tags:
+      - Servers
+      summary: List sweatbox FSD servers
+      description: Returns a list of all sweatbox FSD servers.
+      operationId: listSweatboxFSDServers
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FSDServer'
+              examples:
+                Sweatbox servers:
+                  value: "[\n  {\n    \"ident\": \"SWEATBOX\",\n    \"hostname_or_ip\": \"192.0.2.20\",\n    \"location\": \"San Francisco, USA\",\n    \"name\": \"SWEATBOX\",\n    \"clients_connection_allowed\": 1,\n    \"client_connections_allowed\": true,\n    \"is_sweatbox\": true\n  }\n]"
+  /all-servers.json:
+    get:
+      tags:
+      - Servers
+      summary: List all FSD servers
+      description: Returns a list of all FSD servers.
+      operationId: listAllFSDServers
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FSDServer'
+              examples:
+                All servers:
+                  value: "[\n  {\n    \"ident\": \"USA-EAST\",\n    \"hostname_or_ip\": \"192.0.2.10\",\n    \"location\": \"New York, USA\",\n    \"name\": \"USA-EAST\",\n    \"clients_connection_allowed\": 1,\n    \"client_connections_allowed\": true,\n    \"is_sweatbox\": false\n  },\n  {\n    \"ident\": \"SWEATBOX\",\n    \"hostname_or_ip\": \"192.0.2.20\",\n    \"location\": \"San Francisco, USA\",\n    \"name\": \"SWEATBOX\",\n    \"clients_connection_allowed\": 1,\n    \"client_connections_allowed\": true,\n    \"is_sweatbox\": true\n  }\n]"
+components:
+  schemas:
+    FSDServer:
+      type: object
+      properties:
+        ident:
+          type: string
+          description: Server ident
+          example: USA-EAST
+        hostname_or_ip:
+          type: string
+          description: Server hostname or IP address
+          example: 192.0.2.10
+        location:
+          type: string
+          description: Human-readable geographical location of this server
+          example: New York, USA
+        name:
+          type: string
+          description: Human-readable name of this server
+          example: USA-EAST
+        clients_connection_allowed:
+          type: integer
+          description: Whether this server is accepting connections
+          example: 1
+          deprecated: true
+        client_connections_allowed:
+          type: boolean
+          description: Whether this server is accepting connections
+          example: true
+        is_sweatbox:
+          type: boolean
+          description: Whether this server is in sweatbox mode
+          example: false

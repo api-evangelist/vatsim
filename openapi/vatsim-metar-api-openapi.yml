@@ -1,49 +1,54 @@
 openapi: 3.1.0
 info:
-  title: VATSIM METAR API
+  title: VATSIM AIP Airport info METAR API
   version: 2.0.0
   termsOfService: https://vatsim.net/docs/policy/user-agreement
   contact:
     email: tech@vatsim.net
     name: VATSIM Technology Team
 servers:
-  - url: https://metar.vatsim.net
+- url: https://my.vatsim.net/api/v2/aip
+tags:
+- name: METAR
 paths:
   /{icao}:
     get:
       tags:
-        - METAR
+      - METAR
       summary: Retrieve METARs
-      description: |-
-        Returns the current METARs for the specified airports.
+      description: 'Returns the current METARs for the specified airports.
+
 
         The ICAO codes must be specified in the path, delimited by commas.
 
+
         A special code of `all` can be used to retrieve METARs for all airports.
 
+
         A code of three characters or less will be treated as a wildcard,
-        and will return METARs for all airports that start with that prefix.
+
+        and will return METARs for all airports that start with that prefix.'
       operationId: getMetar
       parameters:
-        - name: icao
-          in: path
-          description: ICAO code of the airport
-          required: true
-          schema:
-            type: array
-            items:
-              type: string
-          example: EGLL
-        - name: format
-          in: query
-          description: 'Format of the response (default: text)'
-          required: false
-          schema:
+      - name: icao
+        in: path
+        description: ICAO code of the airport
+        required: true
+        schema:
+          type: array
+          items:
             type: string
-            enum:
-              - text
-              - json
-          example: text
+        example: EGLL
+      - name: format
+        in: query
+        description: 'Format of the response (default: text)'
+        required: false
+        schema:
+          type: string
+          enum:
+          - text
+          - json
+        example: text
       responses:
         '200':
           description: Successful operation

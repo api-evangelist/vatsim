@@ -1,0 +1,68 @@
+openapi: 3.1.0
+info:
+  title: VATSIM AIP Airport info community API
+  version: 2.0.0
+  termsOfService: https://vatsim.net/docs/policy/user-agreement
+  contact:
+    email: tech@vatsim.net
+    name: VATSIM Technology Team
+servers:
+- url: https://my.vatsim.net/api/v2/aip
+tags:
+- name: community
+paths:
+  /v2/members/discord/{discord_user_id}:
+    get:
+      operationId: members_api_get_vatsim_id
+      summary: Get a VATSIM ID from a Discord User ID
+      parameters:
+      - in: path
+        name: discord_user_id
+        schema:
+          title: Discord User Id
+          type: string
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DiscordID'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+      description: 'Returns the VATSIM ID associated with a given Discord User ID.
+
+
+        Requires a VATSIM member to have linked their Discord account
+
+        via [the community portal](https://community.vatsim.net).'
+      tags:
+      - community
+components:
+  schemas:
+    NotFound:
+      title: NotFound
+      type: object
+      properties:
+        detail:
+          title: Detail
+          default: Not Found.
+          type: string
+    DiscordID:
+      title: DiscordID
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        user_id:
+          title: User Id
+          type: string
+      required:
+      - id
+      - user_id

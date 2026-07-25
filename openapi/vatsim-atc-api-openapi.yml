@@ -1,0 +1,291 @@
+openapi: 3.1.0
+info:
+  title: VATSIM AIP Airport info atc API
+  version: 2.0.0
+  termsOfService: https://vatsim.net/docs/policy/user-agreement
+  contact:
+    email: tech@vatsim.net
+    name: VATSIM Technology Team
+servers:
+- url: https://my.vatsim.net/api/v2/aip
+tags:
+- name: atc
+paths:
+  /v2/atc/online:
+    get:
+      operationId: atc_api_online_atc
+      summary: List all online controllers
+      parameters: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: Response
+                type: array
+                items:
+                  $ref: '#/components/schemas/OnlineSchema'
+      description: Returns a list of all online controllers.
+      tags:
+      - atc
+  /v2/atc/history:
+    get:
+      operationId: atc_api_history_atc
+      summary: List all historical ATC sessions
+      parameters:
+      - in: query
+        name: limit
+        schema:
+          title: Limit
+          default: 100
+          minimum: 1
+          type: integer
+        required: false
+      - in: query
+        name: offset
+        schema:
+          title: Offset
+          default: 0
+          minimum: 0
+          type: integer
+        required: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PagedAtcSchema'
+      description: Returns a list of all historical ATC sessions.
+      tags:
+      - atc
+components:
+  schemas:
+    AtcSchema:
+      title: AtcSchema
+      type: object
+      properties:
+        connection_id:
+          $ref: '#/components/schemas/Connection'
+        aircrafttracked:
+          title: Aircrafttracked
+          type: integer
+        aircraftseen:
+          title: Aircraftseen
+          type: integer
+        flightsamended:
+          title: Flightsamended
+          type: integer
+        handoffsinitiated:
+          title: Handoffsinitiated
+          type: integer
+        handoffsreceived:
+          title: Handoffsreceived
+          type: integer
+        handoffsrefused:
+          title: Handoffsrefused
+          type: integer
+        squawksassigned:
+          title: Squawksassigned
+          type: integer
+        cruisealtsmodified:
+          title: Cruisealtsmodified
+          type: integer
+        tempaltsmodified:
+          title: Tempaltsmodified
+          type: integer
+        scratchpadmods:
+          title: Scratchpadmods
+          type: integer
+      required:
+      - connection_id
+      - aircrafttracked
+      - aircraftseen
+      - flightsamended
+      - handoffsinitiated
+      - handoffsreceived
+      - handoffsrefused
+      - squawksassigned
+      - cruisealtsmodified
+      - tempaltsmodified
+      - scratchpadmods
+    FlightPlans:
+      title: FlightPlans
+      type: object
+      properties:
+        id:
+          title: Id
+          type: integer
+        connection_id:
+          title: Connection Id
+          type: integer
+        vatsim_id:
+          title: Vatsim Id
+          maxLength: 8
+          type: string
+        flight_type:
+          title: Flight Type
+          maxLength: 4
+          type: string
+        callsign:
+          title: Callsign
+          maxLength: 10
+          type: string
+        aircraft:
+          title: Aircraft
+          maxLength: 135
+          type: string
+        cruisespeed:
+          title: Cruisespeed
+          maxLength: 5
+          type: string
+        dep:
+          title: Dep
+          maxLength: 4
+          type: string
+        arr:
+          title: Arr
+          maxLength: 4
+          type: string
+        alt:
+          title: Alt
+          maxLength: 4
+          type: string
+        altitude:
+          title: Altitude
+          maxLength: 6
+          type: string
+        rmks:
+          title: Rmks
+          maxLength: 1200
+          type: string
+        route:
+          title: Route
+          maxLength: 2535
+          type: string
+        deptime:
+          title: Deptime
+          maxLength: 5
+          type: string
+        hrsenroute:
+          title: Hrsenroute
+          type: integer
+        minenroute:
+          title: Minenroute
+          type: integer
+        hrsfuel:
+          title: Hrsfuel
+          type: integer
+        minsfuel:
+          title: Minsfuel
+          type: integer
+        filed:
+          title: Filed
+          type: string
+          format: date-time
+        assignedsquawk:
+          title: Assignedsquawk
+          maxLength: 4
+          type: string
+        modifiedbycid:
+          title: Modifiedbycid
+          maxLength: 8
+          type: string
+        modifiedbycallsign:
+          title: Modifiedbycallsign
+          maxLength: 10
+          type: string
+      required:
+      - vatsim_id
+      - flight_type
+      - callsign
+      - aircraft
+      - cruisespeed
+      - dep
+      - arr
+      - altitude
+      - hrsenroute
+      - minenroute
+      - hrsfuel
+      - minsfuel
+      - filed
+    PagedAtcSchema:
+      title: PagedAtcSchema
+      type: object
+      properties:
+        items:
+          title: Items
+          type: array
+          items:
+            $ref: '#/components/schemas/AtcSchema'
+        count:
+          title: Count
+          type: integer
+      required:
+      - items
+      - count
+    OnlineSchema:
+      title: OnlineSchema
+      type: object
+      properties:
+        id:
+          title: Id
+          type: integer
+        callsign:
+          title: Callsign
+          maxLength: 15
+          type: string
+        start:
+          title: Start
+          type: string
+          format: date-time
+        server:
+          title: Server
+          maxLength: 20
+          type: string
+        rating:
+          title: Rating
+          type: integer
+        fp:
+          $ref: '#/components/schemas/FlightPlans'
+      required:
+      - start
+      - rating
+    Connection:
+      title: Connection
+      type: object
+      properties:
+        id:
+          title: Id
+          type: integer
+        vatsim_id:
+          title: Vatsim Id
+          maxLength: 8
+          type: string
+        type:
+          title: Type
+          type: integer
+        rating:
+          title: Rating
+          type: integer
+        callsign:
+          title: Callsign
+          type: string
+        start:
+          title: Start
+          type: string
+          format: date-time
+        end:
+          title: End
+          type: string
+          format: date-time
+        server:
+          title: Server
+          maxLength: 20
+          type: string
+      required:
+      - vatsim_id
+      - type
+      - rating
+      - callsign
