@@ -1,0 +1,40 @@
+{
+  "provider": "vatsim",
+  "sources": [
+    "vatsim-airport-info-api-openapi.yml",
+    "vatsim-atc-api-openapi.yml",
+    "vatsim-audio-api-openapi.yml",
+    "vatsim-community-api-openapi.yml",
+    "vatsim-data-feed-api-openapi.yml",
+    "vatsim-event-info-api-openapi.yml",
+    "vatsim-events-api-openapi.yml",
+    "vatsim-members-api-openapi.yml",
+    "vatsim-metar-api-openapi.yml",
+    "vatsim-oauth2-api-openapi.yml",
+    "vatsim-orgs-api-openapi.yml",
+    "vatsim-servers-api-openapi.yml",
+    "vatsim-user-api-openapi.yml",
+    "vatsim-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "vatsim-airport-info-api-openapi.yml",
+    "vatsim-atc-api-openapi.yml",
+    "vatsim-audio-api-openapi.yml",
+    "vatsim-community-api-openapi.yml",
+    "vatsim-data-feed-api-openapi.yml",
+    "vatsim-event-info-api-openapi.yml",
+    "vatsim-events-api-openapi.yml",
+    "vatsim-members-api-openapi.yml",
+    "vatsim-metar-api-openapi.yml",
+    "vatsim-oauth2-api-openapi.yml",
+    "vatsim-orgs-api-openapi.yml",
+    "vatsim-servers-api-openapi.yml",
+    "vatsim-user-api-openapi.yml",
+    "vatsim-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
