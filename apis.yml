@@ -5,6 +5,7 @@ description: >-
   plans, and ATC positions. The VATSIM REST APIs allow developers to access
   live network data, member statistics, aviation weather, upcoming events, and
   authentication services for the simulation community.
+specificationVersion: '0.23'
 accessModel:
   pricing: free
   onboarding: self-serve
