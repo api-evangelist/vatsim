@@ -1,0 +1,623 @@
+{
+  "item": [
+    {
+      "id": "8104d350-0265-40b0-95d5-74e3ec1db057",
+      "name": "OAuth2",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9312685c-9cd4-4f7b-9bc1-2ec8cfaa5d6a",
+          "name": "Begin OAuth2 flow",
+          "request": {
+            "name": "Begin OAuth2 flow",
+            "description": {
+              "content": "Redirects the end user to the authorization page",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth",
+                "authorize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "response_type",
+                  "value": "<string>",
+                  "description": "(Required) Which authorization flow to use"
+                },
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>",
+                  "description": "(Required) Client ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "redirect_uri",
+                  "value": "<string>",
+                  "description": "Redirect URI (must match the one configured for the client)"
+                },
+                {
+                  "disabled": false,
+                  "key": "scope",
+                  "value": "<string>%20<string>",
+                  "description": "Space-separated list of requested scopes"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "Value used to maintain state between the request and the callback"
+                },
+                {
+                  "disabled": false,
+                  "key": "prompt",
+                  "value": "<string>",
+                  "description": "How to prompt the user for reauthentication and/or consent\n\nBy default, the authorization server will not prompt the user for\nreauthentication and will not prompt for consent if they have\nalready given it.\n\n`none` will cause the request to return an error if the user is not\nalready logged in and has not given consent to the requested scopes.\n\n`login` will force the user to reauthenticate even if they are\nalready signed in.\n\n`consent` will cause the authorization server to prompt the user to\nconsent to the requested scopes even if they have already done so."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4d459873-8b07-4b31-8640-ea740cb871bb",
+              "name": "Redirect to authorization page",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth",
+                    "authorize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "response_type",
+                      "value": "code"
+                    },
+                    {
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "redirect_uri",
+                      "value": "https://example.com/auth/callback"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "full_name%20email%20vatsim_details%20country"
+                    },
+                    {
+                      "key": "state",
+                      "value": "F99a2qyUKz2JihHMewkLvAHExYhvhOfxsRjx0FY9"
+                    },
+                    {
+                      "key": "prompt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Found",
+              "code": 302,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8bcfcb66-8a2d-4302-be47-b0e95dc16ad2",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth",
+                    "authorize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "response_type",
+                      "value": "code"
+                    },
+                    {
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "redirect_uri",
+                      "value": "https://example.com/auth/callback"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "full_name%20email%20vatsim_details%20country"
+                    },
+                    {
+                      "key": "state",
+                      "value": "F99a2qyUKz2JihHMewkLvAHExYhvhOfxsRjx0FY9"
+                    },
+                    {
+                      "key": "prompt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"invalid_client\",\n  \"error_description\": \"string\",\n  \"message\": \"string\",\n  \"hint\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f00da062-d16e-41ec-81fa-807c8fcc9c3e",
+              "name": "Invalid client ID",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth",
+                    "authorize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "response_type",
+                      "value": "code"
+                    },
+                    {
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "redirect_uri",
+                      "value": "https://example.com/auth/callback"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "full_name%20email%20vatsim_details%20country"
+                    },
+                    {
+                      "key": "state",
+                      "value": "F99a2qyUKz2JihHMewkLvAHExYhvhOfxsRjx0FY9"
+                    },
+                    {
+                      "key": "prompt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"error\\\": \\\"invalid_client\\\",\\n  \\\"error_description\\\": \\\"Client authentication failed\\\",\\n  \\\"message\\\": \\\"Client authentication failed\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e9d41f2f-fcb6-4ed7-b6f5-ce0ba66fc1ba",
+          "name": "Request an access token",
+          "request": {
+            "name": "Request an access token",
+            "description": {
+              "content": "Returns an access token for the end user",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth",
+                "token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "grant_type",
+                  "value": "<string>",
+                  "description": "(Required) Which grant type to use\n\n`authorization_code` and `refresh_token` are used by most clients\n\n`password` is only available with prior approval from VATSIM"
+                },
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>",
+                  "description": "(Required) Client ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "client_secret",
+                  "value": "<password>",
+                  "description": "(Required) Client secret"
+                },
+                {
+                  "disabled": false,
+                  "key": "redirect_uri",
+                  "value": "<string>",
+                  "description": "Redirect URI (must match the one provided in the authorization request)"
+                },
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>",
+                  "description": "Authorization code returned in the callback from the server\n\nRequired when using the `authorization_code` grant"
+                },
+                {
+                  "disabled": false,
+                  "key": "scope",
+                  "value": "0%20<string>%201%20<string>",
+                  "description": "Requested scopes\n\nRequired when using the `password` grant  \nOptional when using the `refresh_token` grant"
+                },
+                {
+                  "disabled": false,
+                  "key": "username",
+                  "value": "<string>",
+                  "description": "VATSIM ID of the user to authenticate\n\nRequired when using the `password` grant"
+                },
+                {
+                  "disabled": false,
+                  "key": "password",
+                  "value": "<password>",
+                  "description": "Password of the user to authenticate\n\nRequired when using the `password` grant"
+                },
+                {
+                  "disabled": false,
+                  "key": "refresh_token",
+                  "value": "<string>",
+                  "description": "Refresh token issued in the original access token request\n\nRequired when using the `refresh_token` grant"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "86de3e9b-7ec5-43f7-ab26-9e55f3cc304a",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Which grant type to use\n\n`authorization_code` and `refresh_token` are used by most clients\n\n`password` is only available with prior approval from VATSIM",
+                        "type": "text/plain"
+                      },
+                      "key": "grant_type",
+                      "value": "authorization_code"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Client ID",
+                        "type": "text/plain"
+                      },
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Client secret",
+                        "type": "text/plain"
+                      },
+                      "key": "client_secret",
+                      "value": "S2A3O0LcsJvpZnefGYsOV7HpHpLv74nSKhHCltes"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Redirect URI (must match the one provided in the authorization request)",
+                        "type": "text/plain"
+                      },
+                      "key": "redirect_uri",
+                      "value": "https://example.com/auth/callback"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Authorization code returned in the callback from the server\n\nRequired when using the `authorization_code` grant",
+                        "type": "text/plain"
+                      },
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Requested scopes\n\nRequired when using the `password` grant  \nOptional when using the `refresh_token` grant",
+                        "type": "text/plain"
+                      },
+                      "key": "scope",
+                      "value": "0%20full_name%201%20email%202%20vatsim_details%203%20country"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "VATSIM ID of the user to authenticate\n\nRequired when using the `password` grant",
+                        "type": "text/plain"
+                      },
+                      "key": "username",
+                      "value": "1234567"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Password of the user to authenticate\n\nRequired when using the `password` grant",
+                        "type": "text/plain"
+                      },
+                      "key": "password",
+                      "value": "K3nn3dy5teve!"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Refresh token issued in the original access token request\n\nRequired when using the `refresh_token` grant",
+                        "type": "text/plain"
+                      },
+                      "key": "refresh_token",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"token_type\": \"Bearer\",\n  \"expires_in\": 604800,\n  \"access_token\": \"string\",\n  \"refresh_token\": \"string\",\n  \"scopes\": [\n    \"full_name\",\n    \"email\",\n    \"vatsim_details\",\n    \"country\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7c26d878-78cc-4bab-9cd2-e908ad3dd315",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Which grant type to use\n\n`authorization_code` and `refresh_token` are used by most clients\n\n`password` is only available with prior approval from VATSIM",
+                        "type": "text/plain"
+                      },
+                      "key": "grant_type",
+                      "value": "authorization_code"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Client ID",
+                        "type": "text/plain"
+                      },
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Client secret",
+                        "type": "text/plain"
+                      },
+                      "key": "client_secret",
+                      "value": "S2A3O0LcsJvpZnefGYsOV7HpHpLv74nSKhHCltes"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Redirect URI (must match the one provided in the authorization request)",
+                        "type": "text/plain"
+                      },
+                      "key": "redirect_uri",
+                      "value": "https://example.com/auth/callback"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Authorization code returned in the callback from the server\n\nRequired when using the `authorization_code` grant",
+                        "type": "text/plain"
+                      },
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Requested scopes\n\nRequired when using the `password` grant  \nOptional when using the `refresh_token` grant",
+                        "type": "text/plain"
+                      },
+                      "key": "scope",
+                      "value": "0%20full_name%201%20email%202%20vatsim_details%203%20country"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "VATSIM ID of the user to authenticate\n\nRequired when using the `password` grant",
+                        "type": "text/plain"
+                      },
+                      "key": "username",
+                      "value": "1234567"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Password of the user to authenticate\n\nRequired when using the `password` grant",
+                        "type": "text/plain"
+                      },
+                      "key": "password",
+                      "value": "K3nn3dy5teve!"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Refresh token issued in the original access token request\n\nRequired when using the `refresh_token` grant",
+                        "type": "text/plain"
+                      },
+                      "key": "refresh_token",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"invalid_client\",\n  \"error_description\": \"string\",\n  \"message\": \"string\",\n  \"hint\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://my.vatsim.net/api/v2/aip",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b808038a-92d5-4adc-9f2d-01b50f12e3bf",
+    "name": "VATSIM AIP Airport info OAuth2 API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Name: VATSIM Technology Team\n Email: tech@vatsim.net",
+      "type": "text/plain"
+    }
+  }
+}

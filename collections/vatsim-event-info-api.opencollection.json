@@ -1,0 +1,116 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "VATSIM AIP Airport info Event info API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Event info",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.vatsim.net/api/v2/aip/latest"
+          },
+          "docs": "Returns a list of all current and upcoming events."
+        },
+        {
+          "info": {
+            "name": "List events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.vatsim.net/api/v2/aip/latest/:num",
+            "params": [
+              {
+                "name": "num",
+                "value": "50",
+                "type": "path",
+                "description": "Number of events to return"
+              }
+            ]
+          },
+          "docs": "Returns a list of the next {num} current and upcoming events."
+        },
+        {
+          "info": {
+            "name": "Get event by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.vatsim.net/api/v2/aip/view/:eventId",
+            "params": [
+              {
+                "name": "eventId",
+                "value": "1",
+                "type": "path",
+                "description": "Event ID"
+              }
+            ]
+          },
+          "docs": "Returns the event with the specified ID."
+        },
+        {
+          "info": {
+            "name": "List all events by region",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.vatsim.net/api/v2/aip/view/region/:regionId",
+            "params": [
+              {
+                "name": "regionId",
+                "value": "AMAS",
+                "type": "path",
+                "description": "Region ID to filter events by"
+              }
+            ]
+          },
+          "docs": "Returns a list of all current and upcoming events in the specified region."
+        },
+        {
+          "info": {
+            "name": "List all events by division",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.vatsim.net/api/v2/aip/view/division/:divisionId",
+            "params": [
+              {
+                "name": "divisionId",
+                "value": "USA",
+                "type": "path",
+                "description": "Division ID to filter events by"
+              }
+            ]
+          },
+          "docs": "Returns a list of all current and upcoming events in the specified division."
+        },
+        {
+          "info": {
+            "name": "Export event calendar",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.vatsim.net/api/v2/aip/export"
+          },
+          "docs": "Export calendar of all current and upcoming events"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

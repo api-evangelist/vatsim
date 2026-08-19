@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "VATSIM AIP Airport info orgs API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "orgs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List a subdivision's members",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.vatsim.net/api/v2/aip/v2/orgs/subdivision/:subdivision_id",
+            "params": [
+              {
+                "name": "subdivision_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "include_inactive",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of all active members of a subdivision."
+        },
+        {
+          "info": {
+            "name": "List a division's members",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.vatsim.net/api/v2/aip/v2/orgs/division/:division_id",
+            "params": [
+              {
+                "name": "division_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "include_inactive",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of all active members of a division."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

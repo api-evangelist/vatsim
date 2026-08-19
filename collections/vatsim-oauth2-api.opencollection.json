@@ -1,0 +1,119 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "VATSIM AIP Airport info OAuth2 API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OAuth2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Begin OAuth2 flow",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.vatsim.net/api/v2/aip/oauth/authorize",
+            "params": [
+              {
+                "name": "response_type",
+                "value": "",
+                "type": "query",
+                "description": "Which authorization flow to use"
+              },
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "query",
+                "description": "Client ID"
+              },
+              {
+                "name": "redirect_uri",
+                "value": "",
+                "type": "query",
+                "description": "Redirect URI (must match the one configured for the client)"
+              },
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query",
+                "description": "Space-separated list of requested scopes"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Value used to maintain state between the request and the callback"
+              },
+              {
+                "name": "prompt",
+                "value": "",
+                "type": "query",
+                "description": "How to prompt the user for reauthentication and/or consent\n\nBy default, the authorization server will not prompt the user for\nreauthentication and will not prompt for consent if they have\nalready given it.\n\n`none` will cause the request to return an error if the user is not\nalready logged in and has not given consent to the requested scopes.\n\n`login` will force the user to reauthenticate even if they are\nalready signed in.\n\n`consent` will cause the authorization server to prompt the user to\nconsent to the requested scopes even if they have already done so."
+              }
+            ]
+          },
+          "docs": "Redirects the end user to the authorization page"
+        },
+        {
+          "info": {
+            "name": "Request an access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://my.vatsim.net/api/v2/aip/oauth/token",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "grant_type",
+                  "value": ""
+                },
+                {
+                  "name": "client_id",
+                  "value": ""
+                },
+                {
+                  "name": "client_secret",
+                  "value": ""
+                },
+                {
+                  "name": "redirect_uri",
+                  "value": ""
+                },
+                {
+                  "name": "code",
+                  "value": ""
+                },
+                {
+                  "name": "scope",
+                  "value": ""
+                },
+                {
+                  "name": "username",
+                  "value": ""
+                },
+                {
+                  "name": "password",
+                  "value": ""
+                },
+                {
+                  "name": "refresh_token",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Returns an access token for the end user"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

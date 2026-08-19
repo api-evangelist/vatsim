@@ -1,0 +1,116 @@
+{
+  "item": [
+    {
+      "id": "764c7a1b-9df9-4ac5-8795-5a6b826b0a8a",
+      "name": "Users",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b8e5a509-4a69-4099-8ef1-85195239fc42",
+          "name": "Get user connections",
+          "request": {
+            "name": "Get user connections",
+            "description": {
+              "content": "Returns the current connections for the specified user.\n\nThe response is a CSV file with the following fields:\n  * VATSIM ID\n  * Callsign\n  * Facility type (`pilot` or `atc`)\n  * Frequency (empty for pilots)\n  * Visual range (empty for pilots)\n  * Latitude\n  * Longitude\n  * Secondary positions  \n    (four or more lat/lon pairs, if set by the controller)\n  * Trailing comma",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cid",
+                  "value": "<integer>",
+                  "description": "(Required) VATSIM ID of the user"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e8268d4d-291a-4e9e-893b-c250b42a7031",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cid",
+                      "value": "1234567"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "1234567,DAL1,pilot,,,40.64222,-73.76981,0,0,0,0,0,0,0,0,",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://my.vatsim.net/api/v2/aip",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "46ad320e-308c-4a29-8c9e-ac2113959a7b",
+    "name": "VATSIM AIP Airport info Users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Name: VATSIM Technology Team\n Email: tech@vatsim.net",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "VATSIM AIP Airport info atc API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "atc",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all online controllers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.vatsim.net/api/v2/aip/v2/atc/online"
+          },
+          "docs": "Returns a list of all online controllers."
+        },
+        {
+          "info": {
+            "name": "List all historical ATC sessions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.vatsim.net/api/v2/aip/v2/atc/history",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of all historical ATC sessions."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

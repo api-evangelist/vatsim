@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "VATSIM AIP Airport info METAR API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "METAR",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve METARs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.vatsim.net/api/v2/aip/:icao",
+            "params": [
+              {
+                "name": "icao",
+                "value": "EGLL",
+                "type": "path",
+                "description": "ICAO code of the airport"
+              },
+              {
+                "name": "format",
+                "value": "text",
+                "type": "query",
+                "description": "Format of the response (default: text)"
+              }
+            ]
+          },
+          "docs": "Returns the current METARs for the specified airports.\n\nThe ICAO codes must be specified in the path, delimited by commas.\n\nA special code of `all` can be used to retrieve METARs for all airports.\n\nA code of three characters or less will be treated as a wildcard,\nand will return METARs for all airports that start with that prefix."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

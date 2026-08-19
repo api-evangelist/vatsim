@@ -1,0 +1,242 @@
+{
+  "item": [
+    {
+      "id": "7a2bc113-484f-40fd-8703-54090147b772",
+      "name": "Servers",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "252785bb-b229-4105-9154-960073344f0b",
+          "name": "List on-network FSD servers",
+          "request": {
+            "name": "List on-network FSD servers",
+            "description": {
+              "content": "Returns a list of all on-network FSD servers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vatsim-servers.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e40d951b-e08f-4acb-bc0d-352c3e7f4c37",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vatsim-servers.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"[\\n  {\\n    \\\"ident\\\": \\\"USA-EAST\\\",\\n    \\\"hostname_or_ip\\\": \\\"192.0.2.10\\\",\\n    \\\"location\\\": \\\"New York, USA\\\",\\n    \\\"name\\\": \\\"USA-EAST\\\",\\n    \\\"clients_connection_allowed\\\": 1,\\n    \\\"client_connections_allowed\\\": true,\\n    \\\"is_sweatbox\\\": false\\n  }\\n]\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "76632460-fba7-4cb8-8688-a13b4e1d42f5",
+          "name": "List sweatbox FSD servers",
+          "request": {
+            "name": "List sweatbox FSD servers",
+            "description": {
+              "content": "Returns a list of all sweatbox FSD servers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sweatbox-servers.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0f627ecb-ff0b-4650-8bba-787e37c24d12",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sweatbox-servers.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"[\\n  {\\n    \\\"ident\\\": \\\"SWEATBOX\\\",\\n    \\\"hostname_or_ip\\\": \\\"192.0.2.20\\\",\\n    \\\"location\\\": \\\"San Francisco, USA\\\",\\n    \\\"name\\\": \\\"SWEATBOX\\\",\\n    \\\"clients_connection_allowed\\\": 1,\\n    \\\"client_connections_allowed\\\": true,\\n    \\\"is_sweatbox\\\": true\\n  }\\n]\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9c676236-157c-4035-86b3-5775f3ab54ee",
+          "name": "List all FSD servers",
+          "request": {
+            "name": "List all FSD servers",
+            "description": {
+              "content": "Returns a list of all FSD servers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "all-servers.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d10d2493-0b1f-404d-8763-2c2aa9bc26ec",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "all-servers.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"[\\n  {\\n    \\\"ident\\\": \\\"USA-EAST\\\",\\n    \\\"hostname_or_ip\\\": \\\"192.0.2.10\\\",\\n    \\\"location\\\": \\\"New York, USA\\\",\\n    \\\"name\\\": \\\"USA-EAST\\\",\\n    \\\"clients_connection_allowed\\\": 1,\\n    \\\"client_connections_allowed\\\": true,\\n    \\\"is_sweatbox\\\": false\\n  },\\n  {\\n    \\\"ident\\\": \\\"SWEATBOX\\\",\\n    \\\"hostname_or_ip\\\": \\\"192.0.2.20\\\",\\n    \\\"location\\\": \\\"San Francisco, USA\\\",\\n    \\\"name\\\": \\\"SWEATBOX\\\",\\n    \\\"clients_connection_allowed\\\": 1,\\n    \\\"client_connections_allowed\\\": true,\\n    \\\"is_sweatbox\\\": true\\n  }\\n]\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://my.vatsim.net/api/v2/aip",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "446e7fa5-9f7b-4f9d-a102-cf11895232a1",
+    "name": "VATSIM AIP Airport info Servers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Name: VATSIM Technology Team\n Email: tech@vatsim.net",
+      "type": "text/plain"
+    }
+  }
+}

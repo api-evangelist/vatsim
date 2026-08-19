@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "VATSIM AIP Airport info Audio API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Audio",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List online audio clients",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.vatsim.net/api/v2/aip/transceivers-data.json"
+          },
+          "docs": "Returns a list of all online audio clients. Re-generates every 15 seconds."
+        },
+        {
+          "info": {
+            "name": "List online ATIS stations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.vatsim.net/api/v2/aip/afv-atis-data.json"
+          },
+          "docs": "Returns a list of all online ATIS stations. Re-generates every 15 seconds."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "VATSIM AIP Airport info Events API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.vatsim.net/api/v2/aip/:num",
+            "params": [
+              {
+                "name": "num",
+                "value": "50",
+                "type": "path",
+                "description": "Number of events to return, or 'all' to return all events"
+              }
+            ]
+          },
+          "docs": "Returns a list of the next {num} current and upcoming events."
+        },
+        {
+          "info": {
+            "name": "List events by region",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.vatsim.net/api/v2/aip/:num/:regionId",
+            "params": [
+              {
+                "name": "num",
+                "value": "50",
+                "type": "path",
+                "description": "Number of events to return, or 'all' to return all events"
+              },
+              {
+                "name": "regionId",
+                "value": "AMAS",
+                "type": "path",
+                "description": "Region ID to filter events by"
+              }
+            ]
+          },
+          "docs": "Returns a list of the next {num} current and upcoming events in the specified region."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,102 @@
+{
+  "item": [
+    {
+      "id": "00b706d5-5f83-4d9a-8c8d-26c7f7cd97f8",
+      "name": "Data feed",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0f797733-d745-49a0-a3fc-b2f310db0aab",
+          "name": "Get live network data",
+          "request": {
+            "name": "Get live network data",
+            "description": {
+              "content": "Returns the live data feed of the network. Re-generates every 15 seconds.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vatsim-data.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2d3bd59a-6d96-436e-b4c3-910bd5a9a6b1",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vatsim-data.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"general\": {\n    \"version\": 3,\n    \"reload\": 1,\n    \"update\": \"19700101000000\",\n    \"update_timestamp\": \"1970-01-01T00:00:00.000000Z\",\n    \"connected_clients\": 586,\n    \"unique_users\": 6235\n  },\n  \"pilots\": [\n    {\n      \"cid\": 1234567,\n      \"name\": \"Kennedy Steve KJFK\",\n      \"callsign\": \"DAL1\",\n      \"server\": \"USA-EAST\",\n      \"pilot_rating\": 0,\n      \"military_rating\": 0,\n      \"latitude\": 40.64222,\n      \"longitude\": -73.76981,\n      \"altitude\": 12,\n      \"groundspeed\": 0,\n      \"transponder\": \"3456\",\n      \"heading\": 44,\n      \"qnh_i_hg\": 29.92,\n      \"qnh_mb\": 1013,\n      \"flight_plan\": {\n        \"flight_rules\": \"I\",\n        \"aircraft\": \"B764/H-SDE3FGHIM3RWXY/LB1\",\n        \"aircraft_faa\": \"B764/L\",\n        \"aircraft_short\": \"B764\",\n        \"departure\": \"KJFK\",\n        \"arrival\": \"EGLL\",\n        \"alternate\": \"EGBB\",\n        \"deptime\": \"0000\",\n        \"enroute_time\": \"0615\",\n        \"fuel_time\": \"0745\",\n        \"remarks\": \"/V/\",\n        \"route\": \"GREKI DCT JUDDS DCT MARTN DCT BAREE DCT NEEKO NATX LIMRI NATX XETBO DCT EVRIN DCT INFEC DCT JETZI DCT OGLUN DCT OCTIZ P2 SIRIC SIRI1H\",\n        \"revision_id\": 1,\n        \"assigned_transponder\": \"3456\"\n      },\n      \"logon_time\": \"1970-01-01T00:00:00.000000Z\",\n      \"last_updated\": \"1970-01-01T00:00:00.000000Z\"\n    },\n    {\n      \"cid\": 1234567,\n      \"name\": \"Kennedy Steve KJFK\",\n      \"callsign\": \"DAL1\",\n      \"server\": \"USA-EAST\",\n      \"pilot_rating\": 0,\n      \"military_rating\": 0,\n      \"latitude\": 40.64222,\n      \"longitude\": -73.76981,\n      \"altitude\": 12,\n      \"groundspeed\": 0,\n      \"transponder\": \"3456\",\n      \"heading\": 44,\n      \"qnh_i_hg\": 29.92,\n      \"qnh_mb\": 1013,\n      \"flight_plan\": {\n        \"flight_rules\": \"I\",\n        \"aircraft\": \"B764/H-SDE3FGHIM3RWXY/LB1\",\n        \"aircraft_faa\": \"B764/L\",\n        \"aircraft_short\": \"B764\",\n        \"departure\": \"KJFK\",\n        \"arrival\": \"EGLL\",\n        \"alternate\": \"EGBB\",\n        \"deptime\": \"0000\",\n        \"enroute_time\": \"0615\",\n        \"fuel_time\": \"0745\",\n        \"remarks\": \"/V/\",\n        \"route\": \"GREKI DCT JUDDS DCT MARTN DCT BAREE DCT NEEKO NATX LIMRI NATX XETBO DCT EVRIN DCT INFEC DCT JETZI DCT OGLUN DCT OCTIZ P2 SIRIC SIRI1H\",\n        \"revision_id\": 1,\n        \"assigned_transponder\": \"3456\"\n      },\n      \"logon_time\": \"1970-01-01T00:00:00.000000Z\",\n      \"last_updated\": \"1970-01-01T00:00:00.000000Z\"\n    }\n  ],\n  \"controllers\": [\n    {\n      \"cid\": 1234567,\n      \"name\": \"Kennedy Steve KJFK\",\n      \"callsign\": \"JFK_GND\",\n      \"frequency\": \"121.900\",\n      \"facility\": 0,\n      \"rating\": 0,\n      \"server\": \"USA-EAST\",\n      \"visual_range\": 20,\n      \"text_atis\": [\n        \"John F. Kennedy Ground (121.900)\",\n        \"Online until 23:00z\",\n        \"Feedback? nyartcc.org/feedback\"\n      ],\n      \"last_updated\": \"1970-01-01T00:00:00.000000Z\",\n      \"logon_time\": \"1970-01-01T00:00:00.000000Z\"\n    },\n    {\n      \"cid\": 1234567,\n      \"name\": \"Kennedy Steve KJFK\",\n      \"callsign\": \"JFK_GND\",\n      \"frequency\": \"121.900\",\n      \"facility\": 0,\n      \"rating\": 0,\n      \"server\": \"USA-EAST\",\n      \"visual_range\": 20,\n      \"text_atis\": [\n        \"John F. Kennedy Ground (121.900)\",\n        \"Online until 23:00z\",\n        \"Feedback? nyartcc.org/feedback\"\n      ],\n      \"last_updated\": \"1970-01-01T00:00:00.000000Z\",\n      \"logon_time\": \"1970-01-01T00:00:00.000000Z\"\n    }\n  ],\n  \"atis\": [\n    {\n      \"cid\": 1234567,\n      \"name\": \"Kennedy Steve KJFK\",\n      \"callsign\": \"KJFK_ATIS\",\n      \"frequency\": \"128.725\",\n      \"facility\": 0,\n      \"rating\": 0,\n      \"server\": \"USA-EAST\",\n      \"visual_range\": 0,\n      \"atis_code\": \"A\",\n      \"text_atis\": [\n        \"KJFK ATIS INFO A 0000Z. 20004KT 10SM SCT013 BKN060 OVC082 22/20\",\n        \"A2992 (TWO NINER NINER TWO). APCH IN USE ILS RY 22L, ILS 22R.\",\n        \"DEPTG RY 22R... BIRD ACTIVITY VICINITY ARPT. NUM CRANES\",\n        \"OPERATING AT JFK. OPERATE XPDR ON MODE *C ON ALL TAXIWAYS AND\",\n        \"RUNWAYS. READBACK ALL RWY HOLD SHORT INSTRUCTIONS....ADVS YOU\",\n        \"HAVE INFO A\"\n      ],\n      \"last_updated\": \"1970-01-01T00:00:00.000000Z\",\n      \"logon_time\": \"1970-01-01T00:00:00.000000Z\"\n    },\n    {\n      \"cid\": 1234567,\n      \"name\": \"Kennedy Steve KJFK\",\n      \"callsign\": \"KJFK_ATIS\",\n      \"frequency\": \"128.725\",\n      \"facility\": 0,\n      \"rating\": 0,\n      \"server\": \"USA-EAST\",\n      \"visual_range\": 0,\n      \"atis_code\": \"A\",\n      \"text_atis\": [\n        \"KJFK ATIS INFO A 0000Z. 20004KT 10SM SCT013 BKN060 OVC082 22/20\",\n        \"A2992 (TWO NINER NINER TWO). APCH IN USE ILS RY 22L, ILS 22R.\",\n        \"DEPTG RY 22R... BIRD ACTIVITY VICINITY ARPT. NUM CRANES\",\n        \"OPERATING AT JFK. OPERATE XPDR ON MODE *C ON ALL TAXIWAYS AND\",\n        \"RUNWAYS. READBACK ALL RWY HOLD SHORT INSTRUCTIONS....ADVS YOU\",\n        \"HAVE INFO A\"\n      ],\n      \"last_updated\": \"1970-01-01T00:00:00.000000Z\",\n      \"logon_time\": \"1970-01-01T00:00:00.000000Z\"\n    }\n  ],\n  \"servers\": [\n    {\n      \"ident\": \"USA-EAST\",\n      \"hostname_or_ip\": \"192.0.2.10\",\n      \"location\": \"New York, USA\",\n      \"name\": \"USA-EAST\",\n      \"clients_connection_allowed\": 1,\n      \"client_connections_allowed\": true,\n      \"is_sweatbox\": false\n    },\n    {\n      \"ident\": \"USA-EAST\",\n      \"hostname_or_ip\": \"192.0.2.10\",\n      \"location\": \"New York, USA\",\n      \"name\": \"USA-EAST\",\n      \"clients_connection_allowed\": 1,\n      \"client_connections_allowed\": true,\n      \"is_sweatbox\": false\n    }\n  ],\n  \"prefiles\": [\n    {\n      \"cid\": 1234567,\n      \"name\": \"1234567\",\n      \"callsign\": \"DAL1\",\n      \"flight_plan\": {\n        \"flight_rules\": \"I\",\n        \"aircraft\": \"B764/H-SDE3FGHIM3RWXY/LB1\",\n        \"aircraft_faa\": \"B764/L\",\n        \"aircraft_short\": \"B764\",\n        \"departure\": \"KJFK\",\n        \"arrival\": \"EGLL\",\n        \"alternate\": \"EGBB\",\n        \"deptime\": \"0000\",\n        \"enroute_time\": \"0615\",\n        \"fuel_time\": \"0745\",\n        \"remarks\": \"/V/\",\n        \"route\": \"GREKI DCT JUDDS DCT MARTN DCT BAREE DCT NEEKO NATX LIMRI NATX XETBO DCT EVRIN DCT INFEC DCT JETZI DCT OGLUN DCT OCTIZ P2 SIRIC SIRI1H\",\n        \"revision_id\": 1,\n        \"assigned_transponder\": \"3456\"\n      },\n      \"last_updated\": \"1970-01-01T00:00:00.000000Z\"\n    },\n    {\n      \"cid\": 1234567,\n      \"name\": \"1234567\",\n      \"callsign\": \"DAL1\",\n      \"flight_plan\": {\n        \"flight_rules\": \"I\",\n        \"aircraft\": \"B764/H-SDE3FGHIM3RWXY/LB1\",\n        \"aircraft_faa\": \"B764/L\",\n        \"aircraft_short\": \"B764\",\n        \"departure\": \"KJFK\",\n        \"arrival\": \"EGLL\",\n        \"alternate\": \"EGBB\",\n        \"deptime\": \"0000\",\n        \"enroute_time\": \"0615\",\n        \"fuel_time\": \"0745\",\n        \"remarks\": \"/V/\",\n        \"route\": \"GREKI DCT JUDDS DCT MARTN DCT BAREE DCT NEEKO NATX LIMRI NATX XETBO DCT EVRIN DCT INFEC DCT JETZI DCT OGLUN DCT OCTIZ P2 SIRIC SIRI1H\",\n        \"revision_id\": 1,\n        \"assigned_transponder\": \"3456\"\n      },\n      \"last_updated\": \"1970-01-01T00:00:00.000000Z\"\n    }\n  ],\n  \"facilities\": [\n    {\n      \"id\": 0,\n      \"short\": \"/GKB/\",\n      \"long_name\": \"Example Facility\"\n    },\n    {\n      \"id\": 0,\n      \"short\": \"/XER/\",\n      \"long_name\": \"Example Facility\"\n    }\n  ],\n  \"ratings\": [\n    {\n      \"id\": 0,\n      \"short_name\": \"/XF6W/\",\n      \"long_name\": \"Example Rating\"\n    },\n    {\n      \"id\": 0,\n      \"short_name\": \"/056I/\",\n      \"long_name\": \"Example Rating\"\n    }\n  ],\n  \"pilot_ratings\": [\n    {\n      \"id\": 0,\n      \"short_name\": \"/2PPS/\",\n      \"long_name\": \"Example Rating\"\n    },\n    {\n      \"id\": 0,\n      \"short_name\": \"/9Z/\",\n      \"long_name\": \"Example Rating\"\n    }\n  ],\n  \"military_ratings\": [\n    {\n      \"id\": 0,\n      \"short_name\": \"/KZ/\",\n      \"long_name\": \"Example Rating\"\n    },\n    {\n      \"id\": 0,\n      \"short_name\": \"/3MRX/\",\n      \"long_name\": \"Example Rating\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://my.vatsim.net/api/v2/aip",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2963a697-ba5b-46c3-970a-1d29f7bc6dd1",
+    "name": "VATSIM AIP Airport info Data feed API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Name: VATSIM Technology Team\n Email: tech@vatsim.net",
+      "type": "text/plain"
+    }
+  }
+}

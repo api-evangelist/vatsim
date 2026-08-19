@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "VATSIM AIP Airport info Data feed API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Data feed",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get live network data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.vatsim.net/api/v2/aip/vatsim-data.json"
+          },
+          "docs": "Returns the live data feed of the network. Re-generates every 15 seconds."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

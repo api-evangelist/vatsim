@@ -1,0 +1,179 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "VATSIM AIP Airport info members API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "members",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a member's flight plans",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.vatsim.net/api/v2/aip/v2/members/:member_id/flightplans",
+            "params": [
+              {
+                "name": "member_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the last 50 flight plans filed by a member."
+        },
+        {
+          "info": {
+            "name": "Get a member's statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.vatsim.net/api/v2/aip/v2/members/:member_id/stats",
+            "params": [
+              {
+                "name": "member_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a member's statistics per position and rating."
+        },
+        {
+          "info": {
+            "name": "Get a member's online status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.vatsim.net/api/v2/aip/v2/members/:member_id/status",
+            "params": [
+              {
+                "name": "member_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a member's current connection, or a 404 if offline."
+        },
+        {
+          "info": {
+            "name": "Get a member's details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.vatsim.net/api/v2/aip/v2/members/:member_id",
+            "params": [
+              {
+                "name": "member_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a member's details.\n\nThe following fields are restricted to authenticated users only:\n- name_first\n- name_last"
+        },
+        {
+          "info": {
+            "name": "Update a member's details",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://my.vatsim.net/api/v2/aip/v2/members/:member_id",
+            "params": [
+              {
+                "name": "member_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a member's details.\n\n- All fields, except for `comment`, are optional.\n- Modifiable fields may be limited by your key's permissions."
+        },
+        {
+          "info": {
+            "name": "List a member's previous ATC sessions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.vatsim.net/api/v2/aip/v2/members/:member_id/atc",
+            "params": [
+              {
+                "name": "member_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of all previous controlling sessions for a member."
+        },
+        {
+          "info": {
+            "name": "List all online pilots",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.vatsim.net/api/v2/aip/v2/members/online"
+          },
+          "docs": "Returns a list of all online pilots."
+        },
+        {
+          "info": {
+            "name": "List a member's previous pilot sessions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.vatsim.net/api/v2/aip/v2/members/:member_id/history",
+            "params": [
+              {
+                "name": "member_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of all previous pilot sessions for a member."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

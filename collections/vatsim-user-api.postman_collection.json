@@ -1,0 +1,139 @@
+{
+  "item": [
+    {
+      "id": "7511c8da-416c-431c-aa65-f7ae07745158",
+      "name": "User",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a554bdde-58d3-42a9-823e-83a3ebcb6995",
+          "name": "Get user details",
+          "request": {
+            "name": "Get user details",
+            "description": {
+              "content": "Returns details about the authenticated user",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "6af1641b-7efb-4497-80b2-b23f01a9ff99",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"cid\": \"1234567\",\n    \"personal\": {\n      \"name_first\": \"Kennedy\",\n      \"name_last\": \"Steve\",\n      \"name_full\": \"Kennedy Steve\",\n      \"email\": \"k.steve@vatsim.net\",\n      \"country\": {\n        \"id\": \"US\",\n        \"name\": \"United States\"\n      }\n    },\n    \"vatsim\": {\n      \"rating\": {\n        \"id\": 0,\n        \"short\": \"/WX7M/\",\n        \"long\": \"Example Rating\"\n      },\n      \"pilotrating\": {\n        \"id\": 0,\n        \"short\": \"/T2X/\",\n        \"long\": \"Example Rating\"\n      },\n      \"region\": {\n        \"id\": \"AMAS\",\n        \"name\": \"Americas\"\n      },\n      \"division\": {\n        \"id\": \"USA\",\n        \"name\": \"United States\"\n      },\n      \"subdivision\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      }\n    },\n    \"oauth\": {\n      \"token_valid\": \"false\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f6cc38b5-f170-4a70-9a4e-d506d7c13b16",
+              "name": "Invalid client",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": \"VSO3\",\n  \"log_code\": \"SSO7cQDRG\",\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://my.vatsim.net/api/v2/aip",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "afbec338-ee85-41c9-b3ae-edb8d17e45a6",
+    "name": "VATSIM AIP Airport info User API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Name: VATSIM Technology Team\n Email: tech@vatsim.net",
+      "type": "text/plain"
+    }
+  }
+}

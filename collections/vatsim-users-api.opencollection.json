@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "VATSIM AIP Airport info Users API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get user connections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.vatsim.net/api/v2/aip/users/info",
+            "params": [
+              {
+                "name": "cid",
+                "value": "1234567",
+                "type": "query",
+                "description": "VATSIM ID of the user"
+              }
+            ]
+          },
+          "docs": "Returns the current connections for the specified user.\n\nThe response is a CSV file with the following fields:\n  * VATSIM ID\n  * Callsign\n  * Facility type (`pilot` or `atc`)\n  * Frequency (empty for pilots)\n  * Visual range (empty for pilots)\n  * Latitude\n  * Longitude\n  * Secondary positions  \n    (four or more lat/lon pairs, if set by the controller)\n  * Trailing comma"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,200 @@
+{
+  "item": [
+    {
+      "id": "39eaa671-3b04-4cde-96cb-6ff3bf7314d9",
+      "name": "atc",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bf0a3500-cf40-4ac8-b15c-584d94473188",
+          "name": "List all online controllers",
+          "request": {
+            "name": "List all online controllers",
+            "description": {
+              "content": "Returns a list of all online controllers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "atc",
+                "online"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "765c98ac-6fc5-46d7-ac42-50a1d8a425dd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "atc",
+                    "online"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"start\": \"2010-06-03T10:59:27.395Z\",\n    \"rating\": 7655,\n    \"id\": 1394,\n    \"callsign\": \"string\",\n    \"server\": \"string\",\n    \"fp\": {\n      \"vatsim_id\": \"string\",\n      \"flight_type\": \"stri\",\n      \"callsign\": \"string\",\n      \"aircraft\": \"string\",\n      \"cruisespeed\": \"strin\",\n      \"dep\": \"stri\",\n      \"arr\": \"stri\",\n      \"altitude\": \"string\",\n      \"hrsenroute\": 9910,\n      \"minenroute\": 4396,\n      \"hrsfuel\": 4535,\n      \"minsfuel\": 5806,\n      \"filed\": \"2007-10-09T00:15:14.306Z\",\n      \"id\": 6874,\n      \"connection_id\": 795,\n      \"alt\": \"stri\",\n      \"rmks\": \"string\",\n      \"route\": \"string\",\n      \"deptime\": \"strin\",\n      \"assignedsquawk\": \"stri\",\n      \"modifiedbycid\": \"string\",\n      \"modifiedbycallsign\": \"string\"\n    }\n  },\n  {\n    \"start\": \"2018-12-05T21:49:31.867Z\",\n    \"rating\": 1539,\n    \"id\": 6876,\n    \"callsign\": \"string\",\n    \"server\": \"string\",\n    \"fp\": {\n      \"vatsim_id\": \"string\",\n      \"flight_type\": \"stri\",\n      \"callsign\": \"string\",\n      \"aircraft\": \"string\",\n      \"cruisespeed\": \"strin\",\n      \"dep\": \"stri\",\n      \"arr\": \"stri\",\n      \"altitude\": \"string\",\n      \"hrsenroute\": 6190,\n      \"minenroute\": 9713,\n      \"hrsfuel\": 4504,\n      \"minsfuel\": 5235,\n      \"filed\": \"1990-05-16T19:31:29.796Z\",\n      \"id\": 8220,\n      \"connection_id\": 830,\n      \"alt\": \"stri\",\n      \"rmks\": \"string\",\n      \"route\": \"string\",\n      \"deptime\": \"strin\",\n      \"assignedsquawk\": \"stri\",\n      \"modifiedbycid\": \"string\",\n      \"modifiedbycallsign\": \"string\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a1891b68-1867-4457-9b43-c5f03c78e398",
+          "name": "List all historical ATC sessions",
+          "request": {
+            "name": "List all historical ATC sessions",
+            "description": {
+              "content": "Returns a list of all historical ATC sessions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "atc",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6c1125af-2316-499e-b944-912367b181b9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "atc",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"connection_id\": {\n        \"vatsim_id\": \"string\",\n        \"type\": 797,\n        \"rating\": 7770,\n        \"callsign\": \"string\",\n        \"id\": 4295,\n        \"start\": \"2000-09-22T03:46:57.815Z\",\n        \"end\": \"1976-12-14T11:17:50.019Z\",\n        \"server\": \"string\"\n      },\n      \"aircrafttracked\": 5026,\n      \"aircraftseen\": 8114,\n      \"flightsamended\": 8187,\n      \"handoffsinitiated\": 2808,\n      \"handoffsreceived\": 3318,\n      \"handoffsrefused\": 1754,\n      \"squawksassigned\": 5542,\n      \"cruisealtsmodified\": 6789,\n      \"tempaltsmodified\": 701,\n      \"scratchpadmods\": 9757\n    },\n    {\n      \"connection_id\": {\n        \"vatsim_id\": \"string\",\n        \"type\": 6687,\n        \"rating\": 2829,\n        \"callsign\": \"string\",\n        \"id\": 727,\n        \"start\": \"2020-10-15T16:40:03.451Z\",\n        \"end\": \"1997-04-29T05:19:33.477Z\",\n        \"server\": \"string\"\n      },\n      \"aircrafttracked\": 3969,\n      \"aircraftseen\": 6910,\n      \"flightsamended\": 3620,\n      \"handoffsinitiated\": 5740,\n      \"handoffsreceived\": 4756,\n      \"handoffsrefused\": 2362,\n      \"squawksassigned\": 8847,\n      \"cruisealtsmodified\": 5558,\n      \"tempaltsmodified\": 8578,\n      \"scratchpadmods\": 369\n    }\n  ],\n  \"count\": 5815\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://my.vatsim.net/api/v2/aip",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4e783a36-4761-4a59-8f03-61de1cb6aa60",
+    "name": "VATSIM AIP Airport info atc API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Name: VATSIM Technology Team\n Email: tech@vatsim.net",
+      "type": "text/plain"
+    }
+  }
+}

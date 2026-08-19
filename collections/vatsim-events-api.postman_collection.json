@@ -1,0 +1,314 @@
+{
+  "item": [
+    {
+      "id": "45c6998f-9937-4eba-9161-38df6f7d4316",
+      "name": "Events",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d57d88a4-357c-4a3e-9f46-7024c47ca33c",
+          "name": "List events",
+          "request": {
+            "name": "List events",
+            "description": {
+              "content": "Returns a list of the next {num} current and upcoming events.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":num"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer,string>",
+                  "key": "num",
+                  "description": "Number of events to return, or 'all' to return all events"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f4cfe1f8-3100-4bd5-ba69-6fb63d1c140b",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":num"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer,string>",
+                      "key": "num",
+                      "description": "Number of events to return, or 'all' to return all events"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"type\": \"Event\",\n      \"name\": \"Example Event\",\n      \"link\": \"https://my.vatsim.net/events/example-event\",\n      \"organisers\": [\n        {\n          \"region\": \"AMAS\",\n          \"division\": \"USA\",\n          \"subdivision\": \"string\",\n          \"organised_by_vatsim\": false\n        },\n        {\n          \"region\": \"AMAS\",\n          \"division\": \"USA\",\n          \"subdivision\": \"string\",\n          \"organised_by_vatsim\": false\n        }\n      ],\n      \"airports\": [\n        {\n          \"icao\": \"KJFK\"\n        },\n        {\n          \"icao\": \"KJFK\"\n        }\n      ],\n      \"routes\": [\n        {\n          \"departure\": \"KJFK\",\n          \"arrival\": \"KATL\",\n          \"route\": \"RBV Q430 BYRDD J48 MOL FLASK OZZZI1\"\n        },\n        {\n          \"departure\": \"KJFK\",\n          \"arrival\": \"KATL\",\n          \"route\": \"RBV Q430 BYRDD J48 MOL FLASK OZZZI1\"\n        }\n      ],\n      \"start_time\": \"1970-01-01 00:00:00+00:00\",\n      \"end_time\": \"1970-01-01 06:00:00+00:00\",\n      \"short_description\": \"<p>Fly with us tonight!</p>\",\n      \"description\": \"<p>Fly with us tonight!</p>\",\n      \"banner\": \"https://vatsim-my.nyc3.digitaloceanspaces.com/events/JpjoYKp6CRcz4V1wvdlMnQHiAtYOmT2p3DevEA7j.png\"\n    },\n    {\n      \"id\": 1,\n      \"type\": \"Event\",\n      \"name\": \"Example Event\",\n      \"link\": \"https://my.vatsim.net/events/example-event\",\n      \"organisers\": [\n        {\n          \"region\": \"AMAS\",\n          \"division\": \"USA\",\n          \"subdivision\": \"string\",\n          \"organised_by_vatsim\": false\n        },\n        {\n          \"region\": \"AMAS\",\n          \"division\": \"USA\",\n          \"subdivision\": \"string\",\n          \"organised_by_vatsim\": false\n        }\n      ],\n      \"airports\": [\n        {\n          \"icao\": \"KJFK\"\n        },\n        {\n          \"icao\": \"KJFK\"\n        }\n      ],\n      \"routes\": [\n        {\n          \"departure\": \"KJFK\",\n          \"arrival\": \"KATL\",\n          \"route\": \"RBV Q430 BYRDD J48 MOL FLASK OZZZI1\"\n        },\n        {\n          \"departure\": \"KJFK\",\n          \"arrival\": \"KATL\",\n          \"route\": \"RBV Q430 BYRDD J48 MOL FLASK OZZZI1\"\n        }\n      ],\n      \"start_time\": \"1970-01-01 00:00:00+00:00\",\n      \"end_time\": \"1970-01-01 06:00:00+00:00\",\n      \"short_description\": \"<p>Fly with us tonight!</p>\",\n      \"description\": \"<p>Fly with us tonight!</p>\",\n      \"banner\": \"https://vatsim-my.nyc3.digitaloceanspaces.com/events/JpjoYKp6CRcz4V1wvdlMnQHiAtYOmT2p3DevEA7j.png\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f76bebf4-1a8d-4ac2-adfd-702fd03a9ead",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":num"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer,string>",
+                      "key": "num",
+                      "description": "Number of events to return, or 'all' to return all events"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Unable to process the request.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "89a4fc13-86b0-4638-bc20-4b65dd7709a2",
+          "name": "List events by region",
+          "request": {
+            "name": "List events by region",
+            "description": {
+              "content": "Returns a list of the next {num} current and upcoming events in the specified region.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":num",
+                ":regionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer,string>",
+                  "key": "num",
+                  "description": "Number of events to return, or 'all' to return all events"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "regionId",
+                  "description": "Region ID to filter events by"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "308345da-3bef-4141-9019-54d9d1605f2c",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":num",
+                    ":regionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer,string>",
+                      "key": "num",
+                      "description": "Number of events to return, or 'all' to return all events"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "regionId",
+                      "description": "Region ID to filter events by"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"type\": \"Event\",\n      \"name\": \"Example Event\",\n      \"link\": \"https://my.vatsim.net/events/example-event\",\n      \"organisers\": [\n        {\n          \"region\": \"AMAS\",\n          \"division\": \"USA\",\n          \"subdivision\": \"string\",\n          \"organised_by_vatsim\": false\n        },\n        {\n          \"region\": \"AMAS\",\n          \"division\": \"USA\",\n          \"subdivision\": \"string\",\n          \"organised_by_vatsim\": false\n        }\n      ],\n      \"airports\": [\n        {\n          \"icao\": \"KJFK\"\n        },\n        {\n          \"icao\": \"KJFK\"\n        }\n      ],\n      \"routes\": [\n        {\n          \"departure\": \"KJFK\",\n          \"arrival\": \"KATL\",\n          \"route\": \"RBV Q430 BYRDD J48 MOL FLASK OZZZI1\"\n        },\n        {\n          \"departure\": \"KJFK\",\n          \"arrival\": \"KATL\",\n          \"route\": \"RBV Q430 BYRDD J48 MOL FLASK OZZZI1\"\n        }\n      ],\n      \"start_time\": \"1970-01-01 00:00:00+00:00\",\n      \"end_time\": \"1970-01-01 06:00:00+00:00\",\n      \"short_description\": \"<p>Fly with us tonight!</p>\",\n      \"description\": \"<p>Fly with us tonight!</p>\",\n      \"banner\": \"https://vatsim-my.nyc3.digitaloceanspaces.com/events/JpjoYKp6CRcz4V1wvdlMnQHiAtYOmT2p3DevEA7j.png\"\n    },\n    {\n      \"id\": 1,\n      \"type\": \"Event\",\n      \"name\": \"Example Event\",\n      \"link\": \"https://my.vatsim.net/events/example-event\",\n      \"organisers\": [\n        {\n          \"region\": \"AMAS\",\n          \"division\": \"USA\",\n          \"subdivision\": \"string\",\n          \"organised_by_vatsim\": false\n        },\n        {\n          \"region\": \"AMAS\",\n          \"division\": \"USA\",\n          \"subdivision\": \"string\",\n          \"organised_by_vatsim\": false\n        }\n      ],\n      \"airports\": [\n        {\n          \"icao\": \"KJFK\"\n        },\n        {\n          \"icao\": \"KJFK\"\n        }\n      ],\n      \"routes\": [\n        {\n          \"departure\": \"KJFK\",\n          \"arrival\": \"KATL\",\n          \"route\": \"RBV Q430 BYRDD J48 MOL FLASK OZZZI1\"\n        },\n        {\n          \"departure\": \"KJFK\",\n          \"arrival\": \"KATL\",\n          \"route\": \"RBV Q430 BYRDD J48 MOL FLASK OZZZI1\"\n        }\n      ],\n      \"start_time\": \"1970-01-01 00:00:00+00:00\",\n      \"end_time\": \"1970-01-01 06:00:00+00:00\",\n      \"short_description\": \"<p>Fly with us tonight!</p>\",\n      \"description\": \"<p>Fly with us tonight!</p>\",\n      \"banner\": \"https://vatsim-my.nyc3.digitaloceanspaces.com/events/JpjoYKp6CRcz4V1wvdlMnQHiAtYOmT2p3DevEA7j.png\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "06881bdf-c5ce-4141-9518-8e1defaccb58",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":num",
+                    ":regionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer,string>",
+                      "key": "num",
+                      "description": "Number of events to return, or 'all' to return all events"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "regionId",
+                      "description": "Region ID to filter events by"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Unable to process the request.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://my.vatsim.net/api/v2/aip",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4bd29205-95b2-40c6-a521-9e0617d38bc0",
+    "name": "VATSIM AIP Airport info Events API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Name: VATSIM Technology Team\n Email: tech@vatsim.net",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "item": [
+    {
+      "id": "35f410cd-89b4-4fd4-84ae-a2be7e5892c4",
+      "name": "METAR",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e3ab3df9-07d0-4f40-bc67-894845b4fe22",
+          "name": "Retrieve METARs",
+          "request": {
+            "name": "Retrieve METARs",
+            "description": {
+              "content": "Returns the current METARs for the specified airports.\n\nThe ICAO codes must be specified in the path, delimited by commas.\n\nA special code of `all` can be used to retrieve METARs for all airports.\n\nA code of three characters or less will be treated as a wildcard,\nand will return METARs for all airports that start with that prefix.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":icao"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Format of the response (default: text)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>,<string>",
+                  "key": "icao",
+                  "description": "(Required) ICAO code of the airport"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d574a44f-d37b-469a-95c3-8043b9837097",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":icao"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "text"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>,<string>",
+                      "key": "icao",
+                      "description": "(Required) ICAO code of the airport"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"EGLL\",\n    \"metar\": \"010000Z AUTO 23008KT 9999 NCD 18/13 Q1018\"\n  },\n  {\n    \"id\": \"EGLL\",\n    \"metar\": \"010000Z AUTO 23008KT 9999 NCD 18/13 Q1018\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://my.vatsim.net/api/v2/aip",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6e56ad6b-ae16-4eff-91f1-abc552aeafbb",
+    "name": "VATSIM AIP Airport info METAR API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Name: VATSIM Technology Team\n Email: tech@vatsim.net",
+      "type": "text/plain"
+    }
+  }
+}

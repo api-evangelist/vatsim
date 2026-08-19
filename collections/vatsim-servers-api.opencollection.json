@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "VATSIM AIP Airport info Servers API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Servers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List on-network FSD servers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.vatsim.net/api/v2/aip/vatsim-servers.json"
+          },
+          "docs": "Returns a list of all on-network FSD servers."
+        },
+        {
+          "info": {
+            "name": "List sweatbox FSD servers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.vatsim.net/api/v2/aip/sweatbox-servers.json"
+          },
+          "docs": "Returns a list of all sweatbox FSD servers."
+        },
+        {
+          "info": {
+            "name": "List all FSD servers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.vatsim.net/api/v2/aip/all-servers.json"
+          },
+          "docs": "Returns a list of all FSD servers."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

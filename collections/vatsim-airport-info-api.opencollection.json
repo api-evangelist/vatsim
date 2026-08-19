@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "VATSIM AIP Airport info API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Airport info",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get airport by ICAO",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.vatsim.net/api/v2/aip/airports/:icao",
+            "params": [
+              {
+                "name": "icao",
+                "value": "KJFK",
+                "type": "path",
+                "description": "Airport ICAO"
+              }
+            ]
+          },
+          "docs": "Returns the airport with the specified ICAO."
+        },
+        {
+          "info": {
+            "name": "List all stations for the airport",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.vatsim.net/api/v2/aip/airports/:icao/stations",
+            "params": [
+              {
+                "name": "icao",
+                "value": "KJFK",
+                "type": "path",
+                "description": "Airport ICAO"
+              }
+            ]
+          },
+          "docs": "Returns a list of all stations for the specified airport."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

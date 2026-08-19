@@ -1,0 +1,172 @@
+{
+  "item": [
+    {
+      "id": "a950952c-0509-4f85-b30c-ed7883fc1d80",
+      "name": "Audio",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7ae666eb-595f-483b-896f-472e282c5414",
+          "name": "List online audio clients",
+          "request": {
+            "name": "List online audio clients",
+            "description": {
+              "content": "Returns a list of all online audio clients. Re-generates every 15 seconds.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transceivers-data.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3f78ca0b-7210-437c-8472-7de8741bbde1",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transceivers-data.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"callsign\": \"JFK_GND\",\n    \"transceivers\": [\n      {\n        \"id\": 0,\n        \"frequency\": 121900000,\n        \"latDeg\": 40.642445,\n        \"lonDeg\": -73.781358,\n        \"heightMslM\": 103,\n        \"heightAglM\": 99\n      },\n      {\n        \"id\": 0,\n        \"frequency\": 121900000,\n        \"latDeg\": 40.642445,\n        \"lonDeg\": -73.781358,\n        \"heightMslM\": 103,\n        \"heightAglM\": 99\n      }\n    ]\n  },\n  {\n    \"callsign\": \"JFK_GND\",\n    \"transceivers\": [\n      {\n        \"id\": 0,\n        \"frequency\": 121900000,\n        \"latDeg\": 40.642445,\n        \"lonDeg\": -73.781358,\n        \"heightMslM\": 103,\n        \"heightAglM\": 99\n      },\n      {\n        \"id\": 0,\n        \"frequency\": 121900000,\n        \"latDeg\": 40.642445,\n        \"lonDeg\": -73.781358,\n        \"heightMslM\": 103,\n        \"heightAglM\": 99\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "639f7064-8db3-46c7-9db1-5cf5744be08b",
+          "name": "List online ATIS stations",
+          "request": {
+            "name": "List online ATIS stations",
+            "description": {
+              "content": "Returns a list of all online ATIS stations. Re-generates every 15 seconds.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "afv-atis-data.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2b3f17c9-3e7e-46f7-8dd5-e147e5cf8fa3",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "afv-atis-data.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"cid\": 1234567,\n    \"name\": \"Kennedy Steve\",\n    \"real_name\": \"vATIS connection for KJFK\",\n    \"callsign\": \"KJFK_ATIS\",\n    \"frequency\": \"128.725\",\n    \"facility\": 0,\n    \"rating\": 0,\n    \"latitude\": 40.63975,\n    \"longitude\": -73.778925,\n    \"server\": \"USA-EAST\",\n    \"visual_range\": 0,\n    \"atis_code\": \"A\",\n    \"text_atis\": [\n      \"KJFK ATIS INFO A 0000Z. 20004KT 10SM SCT013 BKN060 OVC082 22/20\",\n      \"A2992 (TWO NINER NINER TWO). APCH IN USE ILS RY 22L, ILS 22R.\",\n      \"DEPTG RY 22R... BIRD ACTIVITY VICINITY ARPT. NUM CRANES\",\n      \"OPERATING AT JFK. OPERATE XPDR ON MODE *C ON ALL TAXIWAYS AND\",\n      \"RUNWAYS. READBACK ALL RWY HOLD SHORT INSTRUCTIONS....ADVS YOU\",\n      \"HAVE INFO A\"\n    ],\n    \"last_updated\": \"1970-01-01T00:00:00.000000Z\",\n    \"logon_time\": \"1970-01-01T00:00:00.000000Z\"\n  },\n  {\n    \"cid\": 1234567,\n    \"name\": \"Kennedy Steve\",\n    \"real_name\": \"vATIS connection for KJFK\",\n    \"callsign\": \"KJFK_ATIS\",\n    \"frequency\": \"128.725\",\n    \"facility\": 0,\n    \"rating\": 0,\n    \"latitude\": 40.63975,\n    \"longitude\": -73.778925,\n    \"server\": \"USA-EAST\",\n    \"visual_range\": 0,\n    \"atis_code\": \"A\",\n    \"text_atis\": [\n      \"KJFK ATIS INFO A 0000Z. 20004KT 10SM SCT013 BKN060 OVC082 22/20\",\n      \"A2992 (TWO NINER NINER TWO). APCH IN USE ILS RY 22L, ILS 22R.\",\n      \"DEPTG RY 22R... BIRD ACTIVITY VICINITY ARPT. NUM CRANES\",\n      \"OPERATING AT JFK. OPERATE XPDR ON MODE *C ON ALL TAXIWAYS AND\",\n      \"RUNWAYS. READBACK ALL RWY HOLD SHORT INSTRUCTIONS....ADVS YOU\",\n      \"HAVE INFO A\"\n    ],\n    \"last_updated\": \"1970-01-01T00:00:00.000000Z\",\n    \"logon_time\": \"1970-01-01T00:00:00.000000Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://my.vatsim.net/api/v2/aip",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2deef21b-e573-446c-ae95-b17782c316bb",
+    "name": "VATSIM AIP Airport info Audio API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Name: VATSIM Technology Team\n Email: tech@vatsim.net",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,1186 @@
+{
+  "item": [
+    {
+      "id": "c099edd1-689a-4350-a132-bec4fccb624f",
+      "name": "members",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a3a5418a-7ea7-4f3a-83d3-2c48905ee4bf",
+          "name": "Get a member's flight plans",
+          "request": {
+            "name": "Get a member's flight plans",
+            "description": {
+              "content": "Returns the last 50 flight plans filed by a member.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "members",
+                ":member_id",
+                "flightplans"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "member_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cb3fe93d-6784-42c9-9c13-1f56c5315ada",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "members",
+                    ":member_id",
+                    "flightplans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "member_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"vatsim_id\": \"string\",\n    \"flight_type\": \"stri\",\n    \"callsign\": \"string\",\n    \"aircraft\": \"string\",\n    \"cruisespeed\": \"strin\",\n    \"dep\": \"stri\",\n    \"arr\": \"stri\",\n    \"altitude\": \"string\",\n    \"hrsenroute\": 8787,\n    \"minenroute\": 4569,\n    \"hrsfuel\": 6000,\n    \"minsfuel\": 3482,\n    \"filed\": \"1954-11-29T22:52:51.035Z\",\n    \"id\": 2685,\n    \"connection_id\": 5093,\n    \"alt\": \"stri\",\n    \"rmks\": \"string\",\n    \"route\": \"string\",\n    \"deptime\": \"strin\",\n    \"assignedsquawk\": \"stri\",\n    \"modifiedbycid\": \"string\",\n    \"modifiedbycallsign\": \"string\"\n  },\n  {\n    \"vatsim_id\": \"string\",\n    \"flight_type\": \"stri\",\n    \"callsign\": \"string\",\n    \"aircraft\": \"string\",\n    \"cruisespeed\": \"strin\",\n    \"dep\": \"stri\",\n    \"arr\": \"stri\",\n    \"altitude\": \"string\",\n    \"hrsenroute\": 4226,\n    \"minenroute\": 7025,\n    \"hrsfuel\": 748,\n    \"minsfuel\": 8971,\n    \"filed\": \"2018-11-13T04:02:46.379Z\",\n    \"id\": 4491,\n    \"connection_id\": 3458,\n    \"alt\": \"stri\",\n    \"rmks\": \"string\",\n    \"route\": \"string\",\n    \"deptime\": \"strin\",\n    \"assignedsquawk\": \"stri\",\n    \"modifiedbycid\": \"string\",\n    \"modifiedbycallsign\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d6f9784f-c689-4949-907c-027895fb6058",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "members",
+                    ":member_id",
+                    "flightplans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "member_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6023b845-5204-4a77-bc49-138e61d5d8af",
+          "name": "Get a member's statistics",
+          "request": {
+            "name": "Get a member's statistics",
+            "description": {
+              "content": "Returns a member's statistics per position and rating.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "members",
+                ":member_id",
+                "stats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "member_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6f5ff6e3-8412-492a-af87-1be70787929b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "members",
+                    ":member_id",
+                    "stats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "member_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"atc\": 443.12627870448426,\n  \"pilot\": 809.0590108259998,\n  \"s1\": 866.4407869488899,\n  \"s2\": 7514.0042918548625,\n  \"s3\": 6860.1223611145715,\n  \"c1\": 5116.787304249182,\n  \"c2\": 472.46603690993874,\n  \"c3\": 7502.761716556813,\n  \"i1\": 1932.7700806577986,\n  \"i2\": 7785.973567855673,\n  \"i3\": 4418.685147414534,\n  \"sup\": 7001.84339924525,\n  \"adm\": 8098.075821717475,\n  \"id\": 2299\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea55103f-a6f2-4b0c-888d-cb519e950f9d",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "members",
+                    ":member_id",
+                    "stats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "member_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "89611e8c-3af0-4603-8a11-b90c78961e4d",
+          "name": "Get a member's online status",
+          "request": {
+            "name": "Get a member's online status",
+            "description": {
+              "content": "Returns a member's current connection, or a 404 if offline.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "members",
+                ":member_id",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "member_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "00bf9db2-dd6d-4b72-a0ee-5616f0cebce2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "members",
+                    ":member_id",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "member_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"start\": \"2022-05-14T16:24:38.464Z\",\n  \"rating\": 1802,\n  \"id\": 7891,\n  \"callsign\": \"string\",\n  \"server\": \"string\",\n  \"fp\": {\n    \"vatsim_id\": \"string\",\n    \"flight_type\": \"stri\",\n    \"callsign\": \"string\",\n    \"aircraft\": \"string\",\n    \"cruisespeed\": \"strin\",\n    \"dep\": \"stri\",\n    \"arr\": \"stri\",\n    \"altitude\": \"string\",\n    \"hrsenroute\": 9413,\n    \"minenroute\": 4452,\n    \"hrsfuel\": 5912,\n    \"minsfuel\": 6788,\n    \"filed\": \"1999-05-21T02:33:39.477Z\",\n    \"id\": 5137,\n    \"connection_id\": 3722,\n    \"alt\": \"stri\",\n    \"rmks\": \"string\",\n    \"route\": \"string\",\n    \"deptime\": \"strin\",\n    \"assignedsquawk\": \"stri\",\n    \"modifiedbycid\": \"string\",\n    \"modifiedbycallsign\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "54cd4e29-8e37-4fd1-95f0-84bd2561ad3e",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "members",
+                    ":member_id",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "member_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ef8c3e2d-2d89-4c03-a7e1-ca6510c201c3",
+          "name": "Get a member's details",
+          "request": {
+            "name": "Get a member's details",
+            "description": {
+              "content": "Returns a member's details.\n\nThe following fields are restricted to authenticated users only:\n- name_first\n- name_last",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "members",
+                ":member_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "member_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "70fdd9f3-defe-456d-93f1-e9d4db174f21",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "members",
+                    ":member_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "member_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5339,\n  \"countystate\": \"string\",\n  \"country\": \"string\",\n  \"rating\": 1774,\n  \"reg_date\": \"1977-08-31T15:17:43.266Z\",\n  \"region_id\": \"string\",\n  \"division_id\": \"string\",\n  \"name_first\": \"string\",\n  \"name_last\": \"string\",\n  \"email\": \"string\",\n  \"pilotrating\": 0,\n  \"militaryrating\": 0,\n  \"susp_date\": \"1947-08-14T15:37:52.313Z\",\n  \"subdivision_id\": \"string\",\n  \"lastratingchange\": \"1950-02-08T01:07:56.531Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7aba35b1-227b-4e7b-918b-f2e610092ea4",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "members",
+                    ":member_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "member_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f7d690af-e6a7-47e1-8f64-375a3df26454",
+          "name": "Update a member's details",
+          "request": {
+            "name": "Update a member's details",
+            "description": {
+              "content": "Updates a member's details.\n\n- All fields, except for `comment`, are optional.\n- Modifiable fields may be limited by your key's permissions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "members",
+                ":member_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "member_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name_first\": \"<string>\",\n  \"name_last\": \"<string>\",\n  \"name_mothermaiden\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"age\": \"<integer>\",\n  \"countystate\": \"<string>\",\n  \"country\": \"<string>\",\n  \"rating\": \"<integer>\",\n  \"pilotrating\": \"<integer>\",\n  \"militaryrating\": \"<integer>\",\n  \"susp_date\": \"<dateTime>\",\n  \"susp_prevrat\": \"<integer>\",\n  \"region_id\": \"<string>\",\n  \"division_id\": \"<string>\",\n  \"subdivision_id\": \"<string>\",\n  \"lastregionxfer\": \"<dateTime>\",\n  \"lastratingchange\": \"<dateTime>\",\n  \"comment\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d82dbbcb-386a-4b06-8776-8b9c01379d45",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "members",
+                    ":member_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "member_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name_first\": \"<string>\",\n  \"name_last\": \"<string>\",\n  \"name_mothermaiden\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"age\": \"<integer>\",\n  \"countystate\": \"<string>\",\n  \"country\": \"<string>\",\n  \"rating\": \"<integer>\",\n  \"pilotrating\": \"<integer>\",\n  \"militaryrating\": \"<integer>\",\n  \"susp_date\": \"<dateTime>\",\n  \"susp_prevrat\": \"<integer>\",\n  \"region_id\": \"<string>\",\n  \"division_id\": \"<string>\",\n  \"subdivision_id\": \"<string>\",\n  \"lastregionxfer\": \"<dateTime>\",\n  \"lastratingchange\": \"<dateTime>\",\n  \"comment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5339,\n  \"countystate\": \"string\",\n  \"country\": \"string\",\n  \"rating\": 1774,\n  \"reg_date\": \"1977-08-31T15:17:43.266Z\",\n  \"region_id\": \"string\",\n  \"division_id\": \"string\",\n  \"name_first\": \"string\",\n  \"name_last\": \"string\",\n  \"email\": \"string\",\n  \"pilotrating\": 0,\n  \"militaryrating\": 0,\n  \"susp_date\": \"1947-08-14T15:37:52.313Z\",\n  \"subdivision_id\": \"string\",\n  \"lastratingchange\": \"1950-02-08T01:07:56.531Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d4617489-f14e-4ff5-8837-85377498232a",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "members",
+                    ":member_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "member_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name_first\": \"<string>\",\n  \"name_last\": \"<string>\",\n  \"name_mothermaiden\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"age\": \"<integer>\",\n  \"countystate\": \"<string>\",\n  \"country\": \"<string>\",\n  \"rating\": \"<integer>\",\n  \"pilotrating\": \"<integer>\",\n  \"militaryrating\": \"<integer>\",\n  \"susp_date\": \"<dateTime>\",\n  \"susp_prevrat\": \"<integer>\",\n  \"region_id\": \"<string>\",\n  \"division_id\": \"<string>\",\n  \"subdivision_id\": \"<string>\",\n  \"lastregionxfer\": \"<dateTime>\",\n  \"lastratingchange\": \"<dateTime>\",\n  \"comment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "df333646-5ea2-4520-8520-52a877250714",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "members",
+                    ":member_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "member_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name_first\": \"<string>\",\n  \"name_last\": \"<string>\",\n  \"name_mothermaiden\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"age\": \"<integer>\",\n  \"countystate\": \"<string>\",\n  \"country\": \"<string>\",\n  \"rating\": \"<integer>\",\n  \"pilotrating\": \"<integer>\",\n  \"militaryrating\": \"<integer>\",\n  \"susp_date\": \"<dateTime>\",\n  \"susp_prevrat\": \"<integer>\",\n  \"region_id\": \"<string>\",\n  \"division_id\": \"<string>\",\n  \"subdivision_id\": \"<string>\",\n  \"lastregionxfer\": \"<dateTime>\",\n  \"lastratingchange\": \"<dateTime>\",\n  \"comment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1a2ccded-37ed-4357-a139-4cf5173082d6",
+          "name": "List a member's previous ATC sessions",
+          "request": {
+            "name": "List a member's previous ATC sessions",
+            "description": {
+              "content": "Returns a list of all previous controlling sessions for a member.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "members",
+                ":member_id",
+                "atc"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "member_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a9bdbf90-35d6-48d0-9135-ef1ed3ab7a44",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "members",
+                    ":member_id",
+                    "atc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "member_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"connection_id\": {\n        \"vatsim_id\": \"string\",\n        \"type\": 921,\n        \"rating\": 2334,\n        \"callsign\": \"string\",\n        \"id\": 6127,\n        \"start\": \"1982-01-23T13:52:14.491Z\",\n        \"end\": \"1988-07-17T03:57:53.916Z\",\n        \"server\": \"string\"\n      },\n      \"aircrafttracked\": 9567,\n      \"aircraftseen\": 2420,\n      \"flightsamended\": 413,\n      \"handoffsinitiated\": 4696,\n      \"handoffsreceived\": 5693,\n      \"handoffsrefused\": 415,\n      \"squawksassigned\": 1801,\n      \"cruisealtsmodified\": 7552,\n      \"tempaltsmodified\": 5398,\n      \"scratchpadmods\": 3427\n    },\n    {\n      \"connection_id\": {\n        \"vatsim_id\": \"string\",\n        \"type\": 6075,\n        \"rating\": 3748,\n        \"callsign\": \"string\",\n        \"id\": 3040,\n        \"start\": \"2019-12-13T19:13:55.059Z\",\n        \"end\": \"1959-02-03T23:42:14.723Z\",\n        \"server\": \"string\"\n      },\n      \"aircrafttracked\": 2043,\n      \"aircraftseen\": 8913,\n      \"flightsamended\": 8831,\n      \"handoffsinitiated\": 6767,\n      \"handoffsreceived\": 7513,\n      \"handoffsrefused\": 150,\n      \"squawksassigned\": 3533,\n      \"cruisealtsmodified\": 6609,\n      \"tempaltsmodified\": 6789,\n      \"scratchpadmods\": 3913\n    }\n  ],\n  \"count\": 1506\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "80422d38-b8a7-4518-802e-c84436ba97ba",
+          "name": "List all online pilots",
+          "request": {
+            "name": "List all online pilots",
+            "description": {
+              "content": "Returns a list of all online pilots.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "members",
+                "online"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0843dc2a-c582-4fe6-840d-01a8a67c0517",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "members",
+                    "online"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"start\": \"2012-02-08T04:00:30.925Z\",\n    \"rating\": 3269,\n    \"id\": 3469,\n    \"callsign\": \"string\",\n    \"server\": \"string\",\n    \"fp\": {\n      \"vatsim_id\": \"string\",\n      \"flight_type\": \"stri\",\n      \"callsign\": \"string\",\n      \"aircraft\": \"string\",\n      \"cruisespeed\": \"strin\",\n      \"dep\": \"stri\",\n      \"arr\": \"stri\",\n      \"altitude\": \"string\",\n      \"hrsenroute\": 5568,\n      \"minenroute\": 2830,\n      \"hrsfuel\": 1261,\n      \"minsfuel\": 657,\n      \"filed\": \"1976-06-08T01:24:41.510Z\",\n      \"id\": 8798,\n      \"connection_id\": 3448,\n      \"alt\": \"stri\",\n      \"rmks\": \"string\",\n      \"route\": \"string\",\n      \"deptime\": \"strin\",\n      \"assignedsquawk\": \"stri\",\n      \"modifiedbycid\": \"string\",\n      \"modifiedbycallsign\": \"string\"\n    }\n  },\n  {\n    \"start\": \"2013-08-25T02:24:15.204Z\",\n    \"rating\": 6576,\n    \"id\": 1433,\n    \"callsign\": \"string\",\n    \"server\": \"string\",\n    \"fp\": {\n      \"vatsim_id\": \"string\",\n      \"flight_type\": \"stri\",\n      \"callsign\": \"string\",\n      \"aircraft\": \"string\",\n      \"cruisespeed\": \"strin\",\n      \"dep\": \"stri\",\n      \"arr\": \"stri\",\n      \"altitude\": \"string\",\n      \"hrsenroute\": 9814,\n      \"minenroute\": 7427,\n      \"hrsfuel\": 6823,\n      \"minsfuel\": 3933,\n      \"filed\": \"2004-05-19T20:37:36.949Z\",\n      \"id\": 5590,\n      \"connection_id\": 5766,\n      \"alt\": \"stri\",\n      \"rmks\": \"string\",\n      \"route\": \"string\",\n      \"deptime\": \"strin\",\n      \"assignedsquawk\": \"stri\",\n      \"modifiedbycid\": \"string\",\n      \"modifiedbycallsign\": \"string\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "03f9d8e9-34d5-406c-8ea3-f35380bbd108",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "members",
+                    "online"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b80fc348-2633-48e3-b01c-b0c089c5470c",
+          "name": "List a member's previous pilot sessions",
+          "request": {
+            "name": "List a member's previous pilot sessions",
+            "description": {
+              "content": "Returns a list of all previous pilot sessions for a member.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "members",
+                ":member_id",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "member_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "135945bf-d87e-44d5-bcba-b794b2febb30",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "members",
+                    ":member_id",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "member_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"vatsim_id\": \"string\",\n      \"type\": 2830,\n      \"rating\": 4137,\n      \"callsign\": \"string\",\n      \"id\": 1975,\n      \"start\": \"2002-12-12T15:01:37.279Z\",\n      \"end\": \"1987-12-17T01:56:11.150Z\",\n      \"server\": \"string\"\n    },\n    {\n      \"vatsim_id\": \"string\",\n      \"type\": 885,\n      \"rating\": 2204,\n      \"callsign\": \"string\",\n      \"id\": 8933,\n      \"start\": \"2019-04-12T06:22:55.907Z\",\n      \"end\": \"1989-05-20T11:50:58.566Z\",\n      \"server\": \"string\"\n    }\n  ],\n  \"count\": 2613\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ac5137ca-eab0-4008-a1bc-581a9a8188b8",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "members",
+                    ":member_id",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "member_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://my.vatsim.net/api/v2/aip",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a0104539-877b-4ea9-af74-1cb7cbc325cb",
+    "name": "VATSIM AIP Airport info members API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Name: VATSIM Technology Team\n Email: tech@vatsim.net",
+      "type": "text/plain"
+    }
+  }
+}

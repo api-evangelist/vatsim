@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "VATSIM AIP Airport info community API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "community",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a VATSIM ID from a Discord User ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.vatsim.net/api/v2/aip/v2/members/discord/:discord_user_id",
+            "params": [
+              {
+                "name": "discord_user_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the VATSIM ID associated with a given Discord User ID.\n\nRequires a VATSIM member to have linked their Discord account\nvia [the community portal](https://community.vatsim.net)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
