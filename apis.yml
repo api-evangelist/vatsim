@@ -37,6 +37,10 @@ apis:
   humanURL: https://vatsim.dev/api/events-api/
   baseURL: https://api.vatsim.net/v2/events
   tags:
+  - Event
+  - Community
+  - Scheduling
+  tags_raw:
   - Events
   - Community
   - Scheduling
@@ -75,6 +79,10 @@ apis:
   baseURL: https://auth.vatsim.net
   tags:
   - Authentication
+  - SSO
+  - Identity
+  tags_raw:
+  - Authentication
   - OAuth2
   - SSO
   - Identity
@@ -92,6 +100,10 @@ apis:
   humanURL: https://vatsim.dev/api/slurper-api/
   baseURL: https://api.vatsim.net/v2
   tags:
+  - User
+  - Connections
+  - Real-Time
+  tags_raw:
   - Users
   - Connections
   - Real-Time
@@ -149,6 +161,8 @@ apis:
   humanURL: https://vatsim.dev/api/core-api/
   baseURL: https://api.vatsim.net/v2
   tags:
+  - Community
+  tags_raw:
   - community
   properties:
   - type: OpenAPI
@@ -163,6 +177,8 @@ apis:
   humanURL: https://vatsim.dev/api/core-api/
   baseURL: https://api.vatsim.net/v2
   tags:
+  - Data Feed
+  tags_raw:
   - Data feed
   properties:
   - type: OpenAPI
@@ -191,6 +207,8 @@ apis:
   humanURL: https://vatsim.dev/api/core-api/
   baseURL: https://api.vatsim.net/v2
   tags:
+  - Event
+  tags_raw:
   - Events
   properties:
   - type: OpenAPI
@@ -205,6 +223,8 @@ apis:
   humanURL: https://vatsim.dev/api/core-api/
   baseURL: https://api.vatsim.net/v2
   tags:
+  - Members
+  tags_raw:
   - members
   properties:
   - type: OpenAPI
@@ -233,6 +253,8 @@ apis:
   humanURL: https://vatsim.dev/api/core-api/
   baseURL: https://api.vatsim.net/v2
   tags:
+  - Authentication
+  tags_raw:
   - OAuth2
   properties:
   - type: OpenAPI
@@ -247,6 +269,8 @@ apis:
   humanURL: https://vatsim.dev/api/core-api/
   baseURL: https://api.vatsim.net/v2
   tags:
+  - Organization
+  tags_raw:
   - orgs
   properties:
   - type: OpenAPI
@@ -289,6 +313,8 @@ apis:
   humanURL: https://vatsim.dev/api/core-api/
   baseURL: https://api.vatsim.net/v2
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
