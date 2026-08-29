@@ -1,13 +1,13 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: VATSIM AIP Airport info Events API
-  version: 2.0.0
+  title: VATSIM Events API
+  version: 1.0.0
   termsOfService: https://vatsim.net/docs/policy/user-agreement
   contact:
     email: tech@vatsim.net
     name: VATSIM Technology Team
 servers:
-- url: https://my.vatsim.net/api/v2/aip
+- url: https://my.vatsim.net/api/v1/events
 tags:
 - name: Events
 paths:
@@ -61,17 +61,6 @@ paths:
           $ref: '#/components/responses/BadRequestResponse'
 components:
   responses:
-    BadRequestResponse:
-      description: Bad request
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                description: Error message
-                example: Unable to process the request.
     ListEventsResponse:
       description: Successful operation
       content:
@@ -83,7 +72,43 @@ components:
                 type: array
                 items:
                   $ref: '#/components/schemas/Event'
+    BadRequestResponse:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Error message
+                example: Unable to process the request.
   schemas:
+    Organiser:
+      type: object
+      properties:
+        region:
+          type:
+          - string
+          - 'null'
+          description: Region ID
+          example: AMAS
+        division:
+          type:
+          - string
+          - 'null'
+          description: Division ID
+          example: USA
+        subdivision:
+          type:
+          - string
+          - 'null'
+          description: Subdivision ID
+          example: null
+        organised_by_vatsim:
+          type: boolean
+          description: Whether the event is organised by VATSIM
+          example: false
     Event:
       type: object
       properties:
@@ -144,31 +169,13 @@ components:
           type: string
           description: Event banner
           example: https://vatsim-my.nyc3.digitaloceanspaces.com/events/JpjoYKp6CRcz4V1wvdlMnQHiAtYOmT2p3DevEA7j.png
-    Organiser:
+    Airport:
       type: object
       properties:
-        region:
-          type:
-          - string
-          - 'null'
-          description: Region ID
-          example: AMAS
-        division:
-          type:
-          - string
-          - 'null'
-          description: Division ID
-          example: USA
-        subdivision:
-          type:
-          - string
-          - 'null'
-          description: Subdivision ID
-          example: null
-        organised_by_vatsim:
-          type: boolean
-          description: Whether the event is organised by VATSIM
-          example: false
+        icao:
+          type: string
+          description: Airport ICAO code
+          example: KJFK
     FlightPlan:
       type: object
       properties:
@@ -184,10 +191,3 @@ components:
           type: string
           description: Route
           example: RBV Q430 BYRDD J48 MOL FLASK OZZZI1
-    Airport:
-      type: object
-      properties:
-        icao:
-          type: string
-          description: Airport ICAO code
-          example: KJFK

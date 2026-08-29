@@ -1,13 +1,16 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: VATSIM AIP Airport info OAuth2 API
-  version: 2.0.0
+  title: VATSIM Connect O Auth2 API
+  version: 1.0.0
   termsOfService: https://vatsim.net/docs/policy/user-agreement
   contact:
     email: tech@vatsim.net
     name: VATSIM Technology Team
 servers:
-- url: https://my.vatsim.net/api/v2/aip
+- url: https://auth.vatsim.net
+  description: Production
+- url: https://auth-dev.vatsim.net
+  description: Sandbox
 tags:
 - name: OAuth2
 paths:
@@ -273,3 +276,15 @@ components:
         hint:
           type: string
           description: Troubleshooting hint for the client developer
+  securitySchemes:
+    connect:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: /oauth/authorize
+          tokenUrl: /oauth/token
+          scopes:
+            full_name: Read the user's full name
+            email: Read the user's email address
+            vatsim_details: Read the user's VATSIM ratings and divisions
+            country: Read the user's country of residence

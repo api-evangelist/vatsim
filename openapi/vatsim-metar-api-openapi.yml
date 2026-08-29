@@ -1,13 +1,13 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: VATSIM AIP Airport info METAR API
+  title: VATSIM METAR API
   version: 2.0.0
   termsOfService: https://vatsim.net/docs/policy/user-agreement
   contact:
     email: tech@vatsim.net
     name: VATSIM Technology Team
 servers:
-- url: https://my.vatsim.net/api/v2/aip
+- url: https://metar.vatsim.net
 tags:
 - name: METAR
 paths:

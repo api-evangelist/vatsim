@@ -1,13 +1,13 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: VATSIM AIP Airport info Audio API
-  version: 2.0.0
+  title: VATSIM Data Audio API
+  version: 3.0.0
   termsOfService: https://vatsim.net/docs/policy/user-agreement
   contact:
     email: tech@vatsim.net
     name: VATSIM Technology Team
 servers:
-- url: https://my.vatsim.net/api/v2/aip
+- url: https://data.vatsim.net/v3
 tags:
 - name: Audio
 paths:
@@ -45,17 +45,6 @@ paths:
                   $ref: '#/components/schemas/AFVATIS'
 components:
   schemas:
-    AudioClient:
-      type: object
-      properties:
-        callsign:
-          type: string
-          description: Client callsign
-          example: JFK_GND
-        transceivers:
-          type: array
-          items:
-            $ref: '#/components/schemas/Transceiver'
     Transceiver:
       type: object
       properties:
@@ -156,3 +145,14 @@ components:
           format: date-time
           description: When this ATIS connected
           example: '1970-01-01T00:00:00.000000Z'
+    AudioClient:
+      type: object
+      properties:
+        callsign:
+          type: string
+          description: Client callsign
+          example: JFK_GND
+        transceivers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Transceiver'

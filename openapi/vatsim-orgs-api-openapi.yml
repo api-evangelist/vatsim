@@ -1,13 +1,15 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: VATSIM AIP Airport info orgs API
-  version: 2.0.0
+  title: VATSIM Orgs API
+  version: '2.0'
+  description: The VATSIM API is a RESTful API that provides access to data from the VATSIM network.
   termsOfService: https://vatsim.net/docs/policy/user-agreement
   contact:
-    email: tech@vatsim.net
     name: VATSIM Technology Team
+    email: tech@vatsim.net
 servers:
-- url: https://my.vatsim.net/api/v2/aip
+- url: https://api.vatsim.net
+  description: Production
 tags:
 - name: orgs
 paths:
@@ -131,14 +133,6 @@ paths:
       - LegacyAuth: []
 components:
   schemas:
-    NotFound:
-      title: NotFound
-      type: object
-      properties:
-        detail:
-          title: Detail
-          default: Not Found.
-          type: string
     Message:
       title: Message
       description: Requests that produce an error use this schema
@@ -149,21 +143,14 @@ components:
           type: string
       required:
       - message
-    PagedMember:
-      title: PagedMember
+    NotFound:
+      title: NotFound
       type: object
       properties:
-        items:
-          title: Items
-          type: array
-          items:
-            $ref: '#/components/schemas/Member'
-        count:
-          title: Count
-          type: integer
-      required:
-      - items
-      - count
+        detail:
+          title: Detail
+          default: Not Found.
+          type: string
     Member:
       title: Member
       description: Only to be used for response validation as it is unprotected.
@@ -227,3 +214,29 @@ components:
       - reg_date
       - region_id
       - division_id
+    PagedMember:
+      title: PagedMember
+      type: object
+      properties:
+        items:
+          title: Items
+          type: array
+          items:
+            $ref: '#/components/schemas/Member'
+        count:
+          title: Count
+          type: integer
+      required:
+      - items
+      - count
+  securitySchemes:
+    APIKeyAuth:
+      type: apiKey
+      description: Preferred method of authentication for APIv2. Use your APIv2 key here.
+      in: header
+      name: X-API-Key
+    LegacyAuth:
+      type: apiKey
+      description: "\nPreserved for backwards compatibility with API v1, **not recommended** for new integrations.\n\nThe same API key used in the `X-API-Key` header should be used here, but prefixed with `Token `.\n    "
+      in: header
+      name: Authorization
