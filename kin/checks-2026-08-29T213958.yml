@@ -1,16 +1,16 @@
 ---
 kin_checks:
   slug: vatsim
-  schema_version: 0.15.1
-  scored_at: '2026-08-27'
-  run_ts: 2026-08-27T140727
+  schema_version: 0.16.0
+  scored_at: '2026-08-29'
+  run_ts: 2026-08-29T213958
   note: Actionable checks only (missed + partial). earned/na are every other check
-    in rubric/scoring-0.15.1.yml; counts below let you verify that.
+    in rubric/scoring-0.16.0.yml; counts below let you verify that.
   counts:
     total: 130
     earned: 32
-    partial: 9
-    missed: 65
+    partial: 12
+    missed: 62
     na: 24
   checks:
   - id: well_known_published
@@ -18,12 +18,6 @@ kin_checks:
   - id: llms_txt_published
     status: missed
   - id: openapi_3_2
-    status: missed
-    detail: 0 of 14 openapi documents pass
-  - id: info_complete
-    status: missed
-    detail: 0 of 14 openapi documents pass
-  - id: security_schemes_defined
     status: missed
     detail: 0 of 14 openapi documents pass
   - id: webhooks_or_callbacks
@@ -139,14 +133,16 @@ kin_checks:
     status: missed
   - id: dry_run_mode
     status: missed
-  - id: delegated_identity
-    status: missed
   - id: protected_resource_metadata
     status: missed
   - id: dynamic_client_registration
     status: missed
   - id: agentic_commerce
     status: missed
+  - id: info_complete
+    status: partial
+    earned: 1.14
+    detail: 4 of 14 openapi documents pass
   - id: response_coverage
     status: partial
     earned: 4.64
@@ -162,6 +158,10 @@ kin_checks:
     status: partial
     earned: 0.64
     detail: 3 of 14 openapi documents pass
+  - id: security_schemes_defined
+    status: partial
+    earned: 1.71
+    detail: 6 of 14 openapi documents pass
   - id: security_applied
     status: partial
     earned: 0.64
@@ -181,4 +181,8 @@ kin_checks:
   - id: rate_limit_signal
     status: partial
     earned: 3.5
+    detail: 'grade: documented'
+  - id: delegated_identity
+    status: partial
+    earned: 3.0
     detail: 'grade: documented'
