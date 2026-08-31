@@ -188,7 +188,7 @@ apis:
   humanURL: https://vatsim.dev/api/core-api/
   baseURL: https://api.vatsim.net/v2
   tags:
-  - Data Feed
+  - Data feed
   tags_raw:
   - Data feed
   properties:
@@ -280,7 +280,7 @@ apis:
   humanURL: https://vatsim.dev/api/core-api/
   baseURL: https://api.vatsim.net/v2
   tags:
-  - Organization
+  - orgs
   tags_raw:
   - orgs
   properties:
