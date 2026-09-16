@@ -38,9 +38,10 @@ tags:
 url: https://vatsim.dev/services/apis/
 apis:
 - name: VATSIM Events API
-  description: Delivers information about upcoming events on the VATSIM network, including dates, times,
-    organizers, airports, routes, and banner images. Publicly accessible without authentication and provides
-    listing and retrieval of scheduled network events.
+  description: >-
+    Delivers information about upcoming events on the VATSIM network, including dates, times, organizers,
+    airports, routes, and banner images. Publicly accessible without authentication and provides listing
+    and retrieval of scheduled network events.
   image: https://vatsim.net/favicon.ico
   humanURL: https://vatsim.dev/api/events-api/
   baseURL: https://api.vatsim.net/v2/events
@@ -59,9 +60,10 @@ apis:
   - FN: VATSIM Technology Team
     email: tech@vatsim.net
 - name: VATSIM METAR API
-  description: Grants access to real-time METAR weather information for airports around the world. Accepts
-    single or comma-delimited ICAO airport codes, supports a special "all" value for bulk retrieval, and
-    returns data in either plain text or JSON format. No authentication required.
+  description: >-
+    Grants access to real-time METAR weather information for airports around the world. Accepts single
+    or comma-delimited ICAO airport codes, supports a special "all" value for bulk retrieval, and returns
+    data in either plain text or JSON format. No authentication required.
   image: https://vatsim.net/favicon.ico
   humanURL: https://vatsim.dev/api/metar-api/
   baseURL: https://metar.vatsim.net
@@ -77,9 +79,10 @@ apis:
   - FN: VATSIM Technology Team
     email: tech@vatsim.net
 - name: VATSIM Connect API
-  description: OAuth 2.0 single sign-on authentication service for VATSIM members. Enables third-party
-    applications and VATSIM organizations to authenticate users and access authorized profile data including
-    full name, email, VATSIM ratings, division membership, and country of residence.
+  description: >-
+    OAuth 2.0 single sign-on authentication service for VATSIM members. Enables third-party applications
+    and VATSIM organizations to authenticate users and access authorized profile data including full name,
+    email, VATSIM ratings, division membership, and country of residence.
   image: https://vatsim.net/favicon.ico
   humanURL: https://vatsim.dev/api/connect-api/
   baseURL: https://auth.vatsim.net
@@ -99,8 +102,9 @@ apis:
   - FN: VATSIM Technology Team
     email: tech@vatsim.net
 - name: VATSIM Slurper API
-  description: Provides real-time connection information for individual VATSIM users, delivering live
-    session data for a given VATSIM member. Publicly accessible without authentication.
+  description: >-
+    Provides real-time connection information for individual VATSIM users, delivering live session data
+    for a given VATSIM member. Publicly accessible without authentication.
   image: https://vatsim.net/favicon.ico
   humanURL: https://vatsim.dev/api/slurper-api/
   baseURL: https://api.vatsim.net/v2
@@ -252,22 +256,6 @@ apis:
     url: https://vatsim.dev/api/core-api/
   - type: Documentation
     url: https://vatsim.dev/api/data-api/
-- aid: vatsim:vatsim-oauth2-api
-  name: VATSIM OAuth2 API
-  description: The OAuth2 API from VATSIM — 2 operation(s) for oauth2.
-  humanURL: https://vatsim.dev/api/core-api/
-  baseURL: https://api.vatsim.net/v2
-  tags:
-  - Authentication
-  tags_raw:
-  - OAuth2
-  properties:
-  - type: OpenAPI
-    url: openapi/vatsim-oauth2-api-openapi.yml
-  - type: Documentation
-    url: https://vatsim.dev/api/core-api/
-  - type: Documentation
-    url: https://vatsim.dev/api/data-api/
 - aid: vatsim:vatsim-orgs-api
   name: VATSIM orgs API
   description: The orgs API from VATSIM — 2 operation(s) for orgs.
@@ -324,6 +312,20 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/vatsim-users-api-openapi.yml
+  - type: Documentation
+    url: https://vatsim.dev/api/core-api/
+  - type: Documentation
+    url: https://vatsim.dev/api/data-api/
+- aid: vatsim:vatsim-o-auth2-api
+  name: VATSIM O Auth2 API
+  description: The O Auth2 API from VATSIM — 2 operation(s) for o auth2.
+  humanURL: https://vatsim.dev/api/events-api/
+  baseURL: https://api.vatsim.net/v2/events
+  tags:
+  - O Auth2
+  properties:
+  - type: OpenAPI
+    url: openapi/vatsim-o-auth2-api-openapi.yml
   - type: Documentation
     url: https://vatsim.dev/api/core-api/
   - type: Documentation
