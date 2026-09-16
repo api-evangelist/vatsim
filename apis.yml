@@ -1,10 +1,8 @@
 name: VATSIM
-description: >-
-  VATSIM (Virtual Air Traffic Simulation Network) is a global online flight
-  simulation network providing real-time data about pilots, controllers, flight
-  plans, and ATC positions. The VATSIM REST APIs allow developers to access
-  live network data, member statistics, aviation weather, upcoming events, and
-  authentication services for the simulation community.
+description: VATSIM (Virtual Air Traffic Simulation Network) is a global online flight simulation network
+  providing real-time data about pilots, controllers, flight plans, and ATC positions. The VATSIM REST
+  APIs allow developers to access live network data, member statistics, aviation weather, upcoming events,
+  and authentication services for the simulation community.
 deliveryModel:
   model: unknown
   open_source: false
@@ -32,18 +30,17 @@ accessModel:
   method: derived
 image: https://vatsim.net/favicon.ico
 tags:
-  - Aviation
-  - Flight Simulation
-  - Air Traffic Control
-  - Real-Time Data
-  - Community
+- Aviation
+- Flight Simulation
+- Air Traffic Control
+- Real-Time Data
+- Community
 url: https://vatsim.dev/services/apis/
 apis:
 - name: VATSIM Events API
-  description: >-
-    Delivers information about upcoming events on the VATSIM network, including dates, times, organizers,
-    airports, routes, and banner images. Publicly accessible without authentication and provides listing
-    and retrieval of scheduled network events.
+  description: Delivers information about upcoming events on the VATSIM network, including dates, times,
+    organizers, airports, routes, and banner images. Publicly accessible without authentication and provides
+    listing and retrieval of scheduled network events.
   image: https://vatsim.net/favicon.ico
   humanURL: https://vatsim.dev/api/events-api/
   baseURL: https://api.vatsim.net/v2/events
@@ -62,10 +59,9 @@ apis:
   - FN: VATSIM Technology Team
     email: tech@vatsim.net
 - name: VATSIM METAR API
-  description: >-
-    Grants access to real-time METAR weather information for airports around the world. Accepts single
-    or comma-delimited ICAO airport codes, supports a special "all" value for bulk retrieval, and returns
-    data in either plain text or JSON format. No authentication required.
+  description: Grants access to real-time METAR weather information for airports around the world. Accepts
+    single or comma-delimited ICAO airport codes, supports a special "all" value for bulk retrieval, and
+    returns data in either plain text or JSON format. No authentication required.
   image: https://vatsim.net/favicon.ico
   humanURL: https://vatsim.dev/api/metar-api/
   baseURL: https://metar.vatsim.net
@@ -81,10 +77,9 @@ apis:
   - FN: VATSIM Technology Team
     email: tech@vatsim.net
 - name: VATSIM Connect API
-  description: >-
-    OAuth 2.0 single sign-on authentication service for VATSIM members. Enables third-party applications
-    and VATSIM organizations to authenticate users and access authorized profile data including full name,
-    email, VATSIM ratings, division membership, and country of residence.
+  description: OAuth 2.0 single sign-on authentication service for VATSIM members. Enables third-party
+    applications and VATSIM organizations to authenticate users and access authorized profile data including
+    full name, email, VATSIM ratings, division membership, and country of residence.
   image: https://vatsim.net/favicon.ico
   humanURL: https://vatsim.dev/api/connect-api/
   baseURL: https://auth.vatsim.net
@@ -104,9 +99,8 @@ apis:
   - FN: VATSIM Technology Team
     email: tech@vatsim.net
 - name: VATSIM Slurper API
-  description: >-
-    Provides real-time connection information for individual VATSIM users, delivering live session data
-    for a given VATSIM member. Publicly accessible without authentication.
+  description: Provides real-time connection information for individual VATSIM users, delivering live
+    session data for a given VATSIM member. Publicly accessible without authentication.
   image: https://vatsim.net/favicon.ico
   humanURL: https://vatsim.dev/api/slurper-api/
   baseURL: https://api.vatsim.net/v2
@@ -335,15 +329,17 @@ apis:
   - type: Documentation
     url: https://vatsim.dev/api/data-api/
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
-modified: 2026-06-13
+- FN: Kin Lane
+  email: kin@apievangelist.com
+modified: '2026-09-16'
 common:
-  - type: AgenticAccess
-    url: agentic-access/vatsim-agentic-access.yml
-  - type: DomainSecurity
-    url: security/vatsim-domain-security.yml
-  - type: Authentication
-    url: authentication/vatsim-authentication.yml
-  - type: OAuthScopes
-    url: scopes/vatsim-scopes.yml
+- type: Website
+  url: https://vatsim.dev
+- type: AgenticAccess
+  url: agentic-access/vatsim-agentic-access.yml
+- type: DomainSecurity
+  url: security/vatsim-domain-security.yml
+- type: Authentication
+  url: authentication/vatsim-authentication.yml
+- type: OAuthScopes
+  url: scopes/vatsim-scopes.yml
