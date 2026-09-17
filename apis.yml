@@ -316,16 +316,16 @@ apis:
     url: https://vatsim.dev/api/core-api/
   - type: Documentation
     url: https://vatsim.dev/api/data-api/
-- aid: vatsim:vatsim-o-auth2-api
+- aid: vatsim:vatsim-oauth2-api
   name: VATSIM O Auth2 API
-  description: The O Auth2 API from VATSIM — 2 operation(s) for o auth2.
+  description: The OAuth2 API from VATSIM — 2 operation(s) for oauth2.
   humanURL: https://vatsim.dev/api/events-api/
   baseURL: https://api.vatsim.net/v2/events
   tags:
-  - O Auth2
+  - OAuth2
   properties:
   - type: OpenAPI
-    url: openapi/vatsim-o-auth2-api-openapi.yml
+    url: openapi/vatsim-oauth2-api-openapi.yml
   - type: Documentation
     url: https://vatsim.dev/api/core-api/
   - type: Documentation
