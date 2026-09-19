@@ -322,6 +322,8 @@ apis:
   humanURL: https://vatsim.dev/api/events-api/
   baseURL: https://api.vatsim.net/v2/events
   tags:
+  - Authentication
+  tags_raw:
   - OAuth2
   properties:
   - type: OpenAPI
