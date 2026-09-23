@@ -26,7 +26,9 @@
     "vatsim-metar-api-openapi.yml",
     "vatsim-users-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
   "notes": [
@@ -52,7 +54,9 @@
     "metar.yaml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "metar.yaml: declared missing tag: METAR",
     "slurper.yaml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "slurper.yaml: declared missing tag: Users"
+    "slurper.yaml: declared missing tag: Users",
+    "superseded outputs removed: vatsim-o-auth2-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 18 total)"
   ],
   "skipped": [
     "vatsim-airport-info-api-openapi.yml: previously refined output, superseded by openapi/_original/",
@@ -64,7 +68,7 @@
     "vatsim-events-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "vatsim-members-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "vatsim-metar-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "vatsim-oauth2-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "vatsim-o-auth2-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "vatsim-orgs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "vatsim-servers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "vatsim-user-api-openapi.yml: previously refined output, superseded by openapi/_original/",

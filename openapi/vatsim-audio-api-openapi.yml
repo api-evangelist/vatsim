@@ -45,33 +45,6 @@ paths:
                   $ref: '#/components/schemas/AFVATIS'
 components:
   schemas:
-    Transceiver:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Transceiver ID
-          example: 0
-        frequency:
-          type: integer
-          description: Transceiver frequency (Hz)
-          example: 121900000
-        latDeg:
-          type: number
-          description: Transceiver latitude (deg)
-          example: 40.642445
-        lonDeg:
-          type: number
-          description: Transceiver longitude (deg)
-          example: -73.781358
-        heightMslM:
-          type: number
-          description: Transceiver height (m MSL)
-          example: 103
-        heightAglM:
-          type: number
-          description: Transceiver height (m AGL)
-          example: 99
     AFVATIS:
       type: object
       properties:
@@ -156,3 +129,30 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Transceiver'
+    Transceiver:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Transceiver ID
+          example: 0
+        frequency:
+          type: integer
+          description: Transceiver frequency (Hz)
+          example: 121900000
+        latDeg:
+          type: number
+          description: Transceiver latitude (deg)
+          example: 40.642445
+        lonDeg:
+          type: number
+          description: Transceiver longitude (deg)
+          example: -73.781358
+        heightMslM:
+          type: number
+          description: Transceiver height (m MSL)
+          example: 103
+        heightAglM:
+          type: number
+          description: Transceiver height (m AGL)
+          example: 99

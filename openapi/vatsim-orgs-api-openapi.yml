@@ -11,7 +11,7 @@ servers:
 - url: https://api.vatsim.net
   description: Production
 tags:
-- name: orgs
+- name: Orgs
 paths:
   /v2/orgs/subdivision/{subdivision_id}:
     get:
@@ -68,7 +68,7 @@ paths:
                 $ref: '#/components/schemas/NotFound'
       description: Returns a list of all active members of a subdivision.
       tags:
-      - orgs
+      - Orgs
       security:
       - APIKeyAuth: []
       - LegacyAuth: []
@@ -127,22 +127,27 @@ paths:
                 $ref: '#/components/schemas/NotFound'
       description: Returns a list of all active members of a division.
       tags:
-      - orgs
+      - Orgs
       security:
       - APIKeyAuth: []
       - LegacyAuth: []
 components:
   schemas:
-    Message:
-      title: Message
-      description: Requests that produce an error use this schema
+    PagedMember:
+      title: PagedMember
       type: object
       properties:
-        message:
-          title: Message
-          type: string
+        items:
+          title: Items
+          type: array
+          items:
+            $ref: '#/components/schemas/Member'
+        count:
+          title: Count
+          type: integer
       required:
-      - message
+      - items
+      - count
     NotFound:
       title: NotFound
       type: object
@@ -214,21 +219,16 @@ components:
       - reg_date
       - region_id
       - division_id
-    PagedMember:
-      title: PagedMember
+    Message:
+      title: Message
+      description: Requests that produce an error use this schema
       type: object
       properties:
-        items:
-          title: Items
-          type: array
-          items:
-            $ref: '#/components/schemas/Member'
-        count:
-          title: Count
-          type: integer
+        message:
+          title: Message
+          type: string
       required:
-      - items
-      - count
+      - message
   securitySchemes:
     APIKeyAuth:
       type: apiKey

@@ -45,6 +45,23 @@ paths:
                 $ref: '#/components/schemas/APIError'
 components:
   schemas:
+    APIError:
+      type: object
+      properties:
+        error_code:
+          type: string
+          description: Error code
+          enum:
+          - VSO1
+          - VSO2
+          - VSO3
+        log_code:
+          type: string
+          description: Reference ID for VATSIM staff
+          example: SSO7cQDRG
+        error:
+          type: string
+          description: Human-readable error message
     User:
       type: object
       properties:
@@ -166,23 +183,6 @@ components:
               enum:
               - 'true'
               - 'false'
-    APIError:
-      type: object
-      properties:
-        error_code:
-          type: string
-          description: Error code
-          enum:
-          - VSO1
-          - VSO2
-          - VSO3
-        log_code:
-          type: string
-          description: Reference ID for VATSIM staff
-          example: SSO7cQDRG
-        error:
-          type: string
-          description: Human-readable error message
   securitySchemes:
     connect:
       type: oauth2

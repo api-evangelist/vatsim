@@ -11,7 +11,7 @@ servers:
 - url: https://api.vatsim.net
   description: Production
 tags:
-- name: community
+- name: Community
 paths:
   /v2/members/discord/{discord_user_id}:
     get:
@@ -42,9 +42,9 @@ paths:
 
         Requires a VATSIM member to have linked their Discord account
 
-        via [the community portal](https://community.vatsim.net).'
+        via the community portal.'
       tags:
-      - community
+      - Community
 components:
   schemas:
     NotFound:

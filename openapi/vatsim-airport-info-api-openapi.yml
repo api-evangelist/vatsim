@@ -52,38 +52,6 @@ paths:
         '404':
           $ref: '#/components/responses/NotFoundResponse'
 components:
-  responses:
-    ListAirportStationsResponse:
-      description: Successful operation
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              data:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Station'
-    NotFoundResponse:
-      description: Resource Not Found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                description: Message response
-                example: airport could not be found
-    GetAirportResponse:
-      description: Successful operation
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              data:
-                $ref: '#/components/schemas/Airport'
   schemas:
     Station:
       type: object
@@ -156,3 +124,35 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Station'
+  responses:
+    GetAirportResponse:
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '#/components/schemas/Airport'
+    ListAirportStationsResponse:
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Station'
+    NotFoundResponse:
+      description: Resource Not Found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Message response
+                example: airport could not be found
