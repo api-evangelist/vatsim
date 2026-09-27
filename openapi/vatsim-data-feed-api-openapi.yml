@@ -75,60 +75,6 @@ components:
           type: string
           description: Human-readable name
           example: Example Facility
-    Rating:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Controller Rating ID
-          example: 0
-        short_name:
-          type: string
-          pattern: /[A-Z0-9]{2,4}/
-          description: Short identifier
-          example: EXMP
-        long_name:
-          type: string
-          description: Human-readable name
-          example: Example Rating
-    PilotRating:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Pilot Rating ID
-          example: 0
-        short_name:
-          type: string
-          pattern: /[A-Z0-9]{2,4}/
-          description: Short identifier
-          example: EXMP
-        long_name:
-          type: string
-          description: Human-readable name
-          example: Example Rating
-    Prefile:
-      type: object
-      properties:
-        cid:
-          type: integer
-          description: Pilot's VATSIM ID
-          example: 1234567
-        name:
-          type: string
-          description: Pilot's VATSIM ID
-          example: '1234567'
-        callsign:
-          type: string
-          description: Prefile callsign
-          example: DAL1
-        flight_plan:
-          $ref: '#/components/schemas/FlightPlan'
-        last_updated:
-          type: string
-          format: date-time
-          description: When this prefile's status was last received
-          example: '1970-01-01T00:00:00.000000Z'
     Pilot:
       type: object
       properties:
@@ -201,6 +147,122 @@ components:
           format: date-time
           description: When this pilot's status was last received
           example: '1970-01-01T00:00:00.000000Z'
+    PilotRating:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Pilot Rating ID
+          example: 0
+        short_name:
+          type: string
+          pattern: /[A-Z0-9]{2,4}/
+          description: Short identifier
+          example: EXMP
+        long_name:
+          type: string
+          description: Human-readable name
+          example: Example Rating
+    FlightPlan:
+      type: object
+      properties:
+        flight_rules:
+          type: string
+          description: Whether this flight plan is IFR or VFR
+          enum:
+          - I
+          - V
+          example: I
+        aircraft:
+          type: string
+          description: ICAO aircraft type and equipment
+          example: B764/H-SDE3FGHIM3RWXY/LB1
+        aircraft_faa:
+          type: string
+          description: FAA aircraft type
+          example: B764/L
+        aircraft_short:
+          type: string
+          description: ICAO aircraft type designator
+          example: B764
+        departure:
+          type: string
+          description: Departure airport
+          example: KJFK
+        arrival:
+          type: string
+          description: Arrival airport
+          example: EGLL
+        alternate:
+          type: string
+          description: Alternate arrival airport
+          example: EGBB
+        deptime:
+          type: string
+          description: Estimated off-block time
+          example: '0000'
+        enroute_time:
+          type: string
+          description: Estimated time enroute
+          example: '0615'
+        fuel_time:
+          type: string
+          description: Fuel endurance time
+          example: '0745'
+        remarks:
+          type: string
+          description: Flight plan remarks
+          example: /V/
+        route:
+          type: string
+          description: Route of flight
+          example: GREKI DCT JUDDS DCT MARTN DCT BAREE DCT NEEKO NATX LIMRI NATX XETBO DCT EVRIN DCT INFEC DCT JETZI DCT OGLUN DCT OCTIZ P2 SIRIC SIRI1H
+        revision_id:
+          type: integer
+          description: Flight plan revision ID
+          example: 1
+        assigned_transponder:
+          type: string
+          description: System-assigned transponder code
+          example: '3456'
+    MilitaryRating:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Military Rating ID
+          example: 0
+        short_name:
+          type: string
+          pattern: /[A-Z0-9]{2,4}/
+          description: Short identifier
+          example: EXMP
+        long_name:
+          type: string
+          description: Human-readable name
+          example: Example Rating
+    Prefile:
+      type: object
+      properties:
+        cid:
+          type: integer
+          description: Pilot's VATSIM ID
+          example: 1234567
+        name:
+          type: string
+          description: Pilot's VATSIM ID
+          example: '1234567'
+        callsign:
+          type: string
+          description: Prefile callsign
+          example: DAL1
+        flight_plan:
+          $ref: '#/components/schemas/FlightPlan'
+        last_updated:
+          type: string
+          format: date-time
+          description: When this prefile's status was last received
+          example: '1970-01-01T00:00:00.000000Z'
     DataFeed:
       type: object
       properties:
@@ -268,68 +330,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/MilitaryRating'
-    FlightPlan:
-      type: object
-      properties:
-        flight_rules:
-          type: string
-          description: Whether this flight plan is IFR or VFR
-          enum:
-          - I
-          - V
-          example: I
-        aircraft:
-          type: string
-          description: ICAO aircraft type and equipment
-          example: B764/H-SDE3FGHIM3RWXY/LB1
-        aircraft_faa:
-          type: string
-          description: FAA aircraft type
-          example: B764/L
-        aircraft_short:
-          type: string
-          description: ICAO aircraft type designator
-          example: B764
-        departure:
-          type: string
-          description: Departure airport
-          example: KJFK
-        arrival:
-          type: string
-          description: Arrival airport
-          example: EGLL
-        alternate:
-          type: string
-          description: Alternate arrival airport
-          example: EGBB
-        deptime:
-          type: string
-          description: Estimated off-block time
-          example: '0000'
-        enroute_time:
-          type: string
-          description: Estimated time enroute
-          example: '0615'
-        fuel_time:
-          type: string
-          description: Fuel endurance time
-          example: '0745'
-        remarks:
-          type: string
-          description: Flight plan remarks
-          example: /V/
-        route:
-          type: string
-          description: Route of flight
-          example: GREKI DCT JUDDS DCT MARTN DCT BAREE DCT NEEKO NATX LIMRI NATX XETBO DCT EVRIN DCT INFEC DCT JETZI DCT OGLUN DCT OCTIZ P2 SIRIC SIRI1H
-        revision_id:
-          type: integer
-          description: Flight plan revision ID
-          example: 1
-        assigned_transponder:
-          type: string
-          description: System-assigned transponder code
-          example: '3456'
     ATIS:
       type: object
       properties:
@@ -391,6 +391,22 @@ components:
           format: date-time
           description: When this ATIS connected
           example: '1970-01-01T00:00:00.000000Z'
+    Rating:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Controller Rating ID
+          example: 0
+        short_name:
+          type: string
+          pattern: /[A-Z0-9]{2,4}/
+          description: Short identifier
+          example: EXMP
+        long_name:
+          type: string
+          description: Human-readable name
+          example: Example Rating
     Controller:
       type: object
       properties:
@@ -445,19 +461,3 @@ components:
           format: date-time
           description: When this controller connected
           example: '1970-01-01T00:00:00.000000Z'
-    MilitaryRating:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Military Rating ID
-          example: 0
-        short_name:
-          type: string
-          pattern: /[A-Z0-9]{2,4}/
-          description: Short identifier
-          example: EXMP
-        long_name:
-          type: string
-          description: Human-readable name
-          example: Example Rating

@@ -133,29 +133,6 @@ paths:
       - LegacyAuth: []
 components:
   schemas:
-    PagedMember:
-      title: PagedMember
-      type: object
-      properties:
-        items:
-          title: Items
-          type: array
-          items:
-            $ref: '#/components/schemas/Member'
-        count:
-          title: Count
-          type: integer
-      required:
-      - items
-      - count
-    NotFound:
-      title: NotFound
-      type: object
-      properties:
-        detail:
-          title: Detail
-          default: Not Found.
-          type: string
     Member:
       title: Member
       description: Only to be used for response validation as it is unprotected.
@@ -229,6 +206,29 @@ components:
           type: string
       required:
       - message
+    PagedMember:
+      title: PagedMember
+      type: object
+      properties:
+        items:
+          title: Items
+          type: array
+          items:
+            $ref: '#/components/schemas/Member'
+        count:
+          title: Count
+          type: integer
+      required:
+      - items
+      - count
+    NotFound:
+      title: NotFound
+      type: object
+      properties:
+        detail:
+          title: Detail
+          default: Not Found.
+          type: string
   securitySchemes:
     APIKeyAuth:
       type: apiKey

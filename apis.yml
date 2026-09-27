@@ -137,7 +137,7 @@ apis:
   - type: Documentation
     url: https://vatsim.dev/api/data-api/
 - aid: vatsim:vatsim-atc-api
-  name: VATSIM atc API
+  name: VATSIM Atc API
   description: The atc API from VATSIM — 2 operation(s) for atc.
   humanURL: https://vatsim.dev/api/core-api/
   baseURL: https://api.vatsim.net/v2
@@ -165,7 +165,7 @@ apis:
   - type: Documentation
     url: https://vatsim.dev/api/data-api/
 - aid: vatsim:vatsim-community-api
-  name: VATSIM community API
+  name: VATSIM Community API
   description: The community API from VATSIM — 1 operation(s) for community.
   humanURL: https://vatsim.dev/api/core-api/
   baseURL: https://api.vatsim.net/v2
@@ -227,7 +227,7 @@ apis:
   - type: Documentation
     url: https://vatsim.dev/api/data-api/
 - aid: vatsim:vatsim-members-api
-  name: VATSIM members API
+  name: VATSIM Members API
   description: The members API from VATSIM — 7 operation(s) for members.
   humanURL: https://vatsim.dev/api/core-api/
   baseURL: https://api.vatsim.net/v2
@@ -257,7 +257,7 @@ apis:
   - type: Documentation
     url: https://vatsim.dev/api/data-api/
 - aid: vatsim:vatsim-orgs-api
-  name: VATSIM orgs API
+  name: VATSIM Orgs API
   description: The orgs API from VATSIM — 2 operation(s) for orgs.
   humanURL: https://vatsim.dev/api/core-api/
   baseURL: https://api.vatsim.net/v2

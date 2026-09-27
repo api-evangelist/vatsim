@@ -228,15 +228,6 @@ components:
           description: Airport ICAO code
           example: KJFK
   responses:
-    GetEventResponse:
-      description: Successful operation
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              data:
-                $ref: '#/components/schemas/Event'
     ListEventsResponse:
       description: Successful operation
       content:
@@ -248,3 +239,12 @@ components:
                 type: array
                 items:
                   $ref: '#/components/schemas/Event'
+    GetEventResponse:
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '#/components/schemas/Event'

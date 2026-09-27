@@ -60,29 +60,6 @@ paths:
         '400':
           $ref: '#/components/responses/BadRequestResponse'
 components:
-  responses:
-    BadRequestResponse:
-      description: Bad request
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                description: Error message
-                example: Unable to process the request.
-    ListEventsResponse:
-      description: Successful operation
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              data:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Event'
   schemas:
     Event:
       type: object
@@ -191,3 +168,26 @@ components:
           type: string
           description: Airport ICAO code
           example: KJFK
+  responses:
+    ListEventsResponse:
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Event'
+    BadRequestResponse:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Error message
+                example: Unable to process the request.
