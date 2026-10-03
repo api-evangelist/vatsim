@@ -47,14 +47,6 @@ paths:
       - Community
 components:
   schemas:
-    NotFound:
-      title: NotFound
-      type: object
-      properties:
-        detail:
-          title: Detail
-          default: Not Found.
-          type: string
     DiscordID:
       title: DiscordID
       type: object
@@ -68,6 +60,14 @@ components:
       required:
       - id
       - user_id
+    NotFound:
+      title: NotFound
+      type: object
+      properties:
+        detail:
+          title: Detail
+          default: Not Found.
+          type: string
   securitySchemes:
     APIKeyAuth:
       type: apiKey

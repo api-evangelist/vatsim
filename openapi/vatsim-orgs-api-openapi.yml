@@ -133,6 +133,31 @@ paths:
       - LegacyAuth: []
 components:
   schemas:
+    PagedMember:
+      title: PagedMember
+      type: object
+      properties:
+        items:
+          title: Items
+          type: array
+          items:
+            $ref: '#/components/schemas/Member'
+        count:
+          title: Count
+          type: integer
+      required:
+      - items
+      - count
+    Message:
+      title: Message
+      description: Requests that produce an error use this schema
+      type: object
+      properties:
+        message:
+          title: Message
+          type: string
+      required:
+      - message
     Member:
       title: Member
       description: Only to be used for response validation as it is unprotected.
@@ -196,31 +221,6 @@ components:
       - reg_date
       - region_id
       - division_id
-    Message:
-      title: Message
-      description: Requests that produce an error use this schema
-      type: object
-      properties:
-        message:
-          title: Message
-          type: string
-      required:
-      - message
-    PagedMember:
-      title: PagedMember
-      type: object
-      properties:
-        items:
-          title: Items
-          type: array
-          items:
-            $ref: '#/components/schemas/Member'
-        count:
-          title: Count
-          type: integer
-      required:
-      - items
-      - count
     NotFound:
       title: NotFound
       type: object

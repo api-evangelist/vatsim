@@ -64,21 +64,81 @@ paths:
       - atc
 components:
   schemas:
-    PagedAtcSchema:
-      title: PagedAtcSchema
+    AtcSchema:
+      title: AtcSchema
       type: object
       properties:
-        items:
-          title: Items
-          type: array
-          items:
-            $ref: '#/components/schemas/AtcSchema'
-        count:
-          title: Count
+        connection_id:
+          $ref: '#/components/schemas/Connection'
+        aircrafttracked:
+          title: Aircrafttracked
+          type: integer
+        aircraftseen:
+          title: Aircraftseen
+          type: integer
+        flightsamended:
+          title: Flightsamended
+          type: integer
+        handoffsinitiated:
+          title: Handoffsinitiated
+          type: integer
+        handoffsreceived:
+          title: Handoffsreceived
+          type: integer
+        handoffsrefused:
+          title: Handoffsrefused
+          type: integer
+        squawksassigned:
+          title: Squawksassigned
+          type: integer
+        cruisealtsmodified:
+          title: Cruisealtsmodified
+          type: integer
+        tempaltsmodified:
+          title: Tempaltsmodified
+          type: integer
+        scratchpadmods:
+          title: Scratchpadmods
           type: integer
       required:
-      - items
-      - count
+      - connection_id
+      - aircrafttracked
+      - aircraftseen
+      - flightsamended
+      - handoffsinitiated
+      - handoffsreceived
+      - handoffsrefused
+      - squawksassigned
+      - cruisealtsmodified
+      - tempaltsmodified
+      - scratchpadmods
+    OnlineSchema:
+      title: OnlineSchema
+      type: object
+      properties:
+        id:
+          title: Id
+          type: integer
+        callsign:
+          title: Callsign
+          maxLength: 15
+          type: string
+        start:
+          title: Start
+          type: string
+          format: date-time
+        server:
+          title: Server
+          maxLength: 20
+          type: string
+        rating:
+          title: Rating
+          type: integer
+        fp:
+          $ref: '#/components/schemas/FlightPlans'
+      required:
+      - start
+      - rating
     FlightPlans:
       title: FlightPlans
       type: object
@@ -216,81 +276,21 @@ components:
       - type
       - rating
       - callsign
-    AtcSchema:
-      title: AtcSchema
+    PagedAtcSchema:
+      title: PagedAtcSchema
       type: object
       properties:
-        connection_id:
-          $ref: '#/components/schemas/Connection'
-        aircrafttracked:
-          title: Aircrafttracked
-          type: integer
-        aircraftseen:
-          title: Aircraftseen
-          type: integer
-        flightsamended:
-          title: Flightsamended
-          type: integer
-        handoffsinitiated:
-          title: Handoffsinitiated
-          type: integer
-        handoffsreceived:
-          title: Handoffsreceived
-          type: integer
-        handoffsrefused:
-          title: Handoffsrefused
-          type: integer
-        squawksassigned:
-          title: Squawksassigned
-          type: integer
-        cruisealtsmodified:
-          title: Cruisealtsmodified
-          type: integer
-        tempaltsmodified:
-          title: Tempaltsmodified
-          type: integer
-        scratchpadmods:
-          title: Scratchpadmods
+        items:
+          title: Items
+          type: array
+          items:
+            $ref: '#/components/schemas/AtcSchema'
+        count:
+          title: Count
           type: integer
       required:
-      - connection_id
-      - aircrafttracked
-      - aircraftseen
-      - flightsamended
-      - handoffsinitiated
-      - handoffsreceived
-      - handoffsrefused
-      - squawksassigned
-      - cruisealtsmodified
-      - tempaltsmodified
-      - scratchpadmods
-    OnlineSchema:
-      title: OnlineSchema
-      type: object
-      properties:
-        id:
-          title: Id
-          type: integer
-        callsign:
-          title: Callsign
-          maxLength: 15
-          type: string
-        start:
-          title: Start
-          type: string
-          format: date-time
-        server:
-          title: Server
-          maxLength: 20
-          type: string
-        rating:
-          title: Rating
-          type: integer
-        fp:
-          $ref: '#/components/schemas/FlightPlans'
-      required:
-      - start
-      - rating
+      - items
+      - count
   securitySchemes:
     APIKeyAuth:
       type: apiKey

@@ -121,21 +121,6 @@ components:
           type: string
           description: Event banner
           example: https://vatsim-my.nyc3.digitaloceanspaces.com/events/JpjoYKp6CRcz4V1wvdlMnQHiAtYOmT2p3DevEA7j.png
-    FlightPlan:
-      type: object
-      properties:
-        departure:
-          type: string
-          description: Departure airport ICAO code
-          example: KJFK
-        arrival:
-          type: string
-          description: Arrival airport ICAO code
-          example: KATL
-        route:
-          type: string
-          description: Route
-          example: RBV Q430 BYRDD J48 MOL FLASK OZZZI1
     Organiser:
       type: object
       properties:
@@ -161,6 +146,21 @@ components:
           type: boolean
           description: Whether the event is organised by VATSIM
           example: false
+    FlightPlan:
+      type: object
+      properties:
+        departure:
+          type: string
+          description: Departure airport ICAO code
+          example: KJFK
+        arrival:
+          type: string
+          description: Arrival airport ICAO code
+          example: KATL
+        route:
+          type: string
+          description: Route
+          example: RBV Q430 BYRDD J48 MOL FLASK OZZZI1
     Airport:
       type: object
       properties:
