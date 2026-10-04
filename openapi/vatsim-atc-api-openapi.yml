@@ -64,6 +64,85 @@ paths:
       - atc
 components:
   schemas:
+    Connection:
+      title: Connection
+      type: object
+      properties:
+        id:
+          title: Id
+          type: integer
+        vatsim_id:
+          title: Vatsim Id
+          maxLength: 8
+          type: string
+        type:
+          title: Type
+          type: integer
+        rating:
+          title: Rating
+          type: integer
+        callsign:
+          title: Callsign
+          type: string
+        start:
+          title: Start
+          type: string
+          format: date-time
+        end:
+          title: End
+          type: string
+          format: date-time
+        server:
+          title: Server
+          maxLength: 20
+          type: string
+      required:
+      - vatsim_id
+      - type
+      - rating
+      - callsign
+    OnlineSchema:
+      title: OnlineSchema
+      type: object
+      properties:
+        id:
+          title: Id
+          type: integer
+        callsign:
+          title: Callsign
+          maxLength: 15
+          type: string
+        start:
+          title: Start
+          type: string
+          format: date-time
+        server:
+          title: Server
+          maxLength: 20
+          type: string
+        rating:
+          title: Rating
+          type: integer
+        fp:
+          $ref: '#/components/schemas/FlightPlans'
+      required:
+      - start
+      - rating
+    PagedAtcSchema:
+      title: PagedAtcSchema
+      type: object
+      properties:
+        items:
+          title: Items
+          type: array
+          items:
+            $ref: '#/components/schemas/AtcSchema'
+        count:
+          title: Count
+          type: integer
+      required:
+      - items
+      - count
     AtcSchema:
       title: AtcSchema
       type: object
@@ -112,33 +191,6 @@ components:
       - cruisealtsmodified
       - tempaltsmodified
       - scratchpadmods
-    OnlineSchema:
-      title: OnlineSchema
-      type: object
-      properties:
-        id:
-          title: Id
-          type: integer
-        callsign:
-          title: Callsign
-          maxLength: 15
-          type: string
-        start:
-          title: Start
-          type: string
-          format: date-time
-        server:
-          title: Server
-          maxLength: 20
-          type: string
-        rating:
-          title: Rating
-          type: integer
-        fp:
-          $ref: '#/components/schemas/FlightPlans'
-      required:
-      - start
-      - rating
     FlightPlans:
       title: FlightPlans
       type: object
@@ -239,58 +291,6 @@ components:
       - hrsfuel
       - minsfuel
       - filed
-    Connection:
-      title: Connection
-      type: object
-      properties:
-        id:
-          title: Id
-          type: integer
-        vatsim_id:
-          title: Vatsim Id
-          maxLength: 8
-          type: string
-        type:
-          title: Type
-          type: integer
-        rating:
-          title: Rating
-          type: integer
-        callsign:
-          title: Callsign
-          type: string
-        start:
-          title: Start
-          type: string
-          format: date-time
-        end:
-          title: End
-          type: string
-          format: date-time
-        server:
-          title: Server
-          maxLength: 20
-          type: string
-      required:
-      - vatsim_id
-      - type
-      - rating
-      - callsign
-    PagedAtcSchema:
-      title: PagedAtcSchema
-      type: object
-      properties:
-        items:
-          title: Items
-          type: array
-          items:
-            $ref: '#/components/schemas/AtcSchema'
-        count:
-          title: Count
-          type: integer
-      required:
-      - items
-      - count
   securitySchemes:
     APIKeyAuth:
       type: apiKey

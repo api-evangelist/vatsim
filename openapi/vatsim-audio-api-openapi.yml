@@ -45,33 +45,17 @@ paths:
                   $ref: '#/components/schemas/AFVATIS'
 components:
   schemas:
-    Transceiver:
+    AudioClient:
       type: object
       properties:
-        id:
-          type: integer
-          description: Transceiver ID
-          example: 0
-        frequency:
-          type: integer
-          description: Transceiver frequency (Hz)
-          example: 121900000
-        latDeg:
-          type: number
-          description: Transceiver latitude (deg)
-          example: 40.642445
-        lonDeg:
-          type: number
-          description: Transceiver longitude (deg)
-          example: -73.781358
-        heightMslM:
-          type: number
-          description: Transceiver height (m MSL)
-          example: 103
-        heightAglM:
-          type: number
-          description: Transceiver height (m AGL)
-          example: 99
+        callsign:
+          type: string
+          description: Client callsign
+          example: JFK_GND
+        transceivers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Transceiver'
     AFVATIS:
       type: object
       properties:
@@ -145,14 +129,30 @@ components:
           format: date-time
           description: When this ATIS connected
           example: '1970-01-01T00:00:00.000000Z'
-    AudioClient:
+    Transceiver:
       type: object
       properties:
-        callsign:
-          type: string
-          description: Client callsign
-          example: JFK_GND
-        transceivers:
-          type: array
-          items:
-            $ref: '#/components/schemas/Transceiver'
+        id:
+          type: integer
+          description: Transceiver ID
+          example: 0
+        frequency:
+          type: integer
+          description: Transceiver frequency (Hz)
+          example: 121900000
+        latDeg:
+          type: number
+          description: Transceiver latitude (deg)
+          example: 40.642445
+        lonDeg:
+          type: number
+          description: Transceiver longitude (deg)
+          example: -73.781358
+        heightMslM:
+          type: number
+          description: Transceiver height (m MSL)
+          example: 103
+        heightAglM:
+          type: number
+          description: Transceiver height (m AGL)
+          example: 99

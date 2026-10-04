@@ -289,242 +289,43 @@ paths:
       - Members
 components:
   schemas:
-    AtcSchema:
-      title: AtcSchema
-      type: object
-      properties:
-        connection_id:
-          $ref: '#/components/schemas/Connection'
-        aircrafttracked:
-          title: Aircrafttracked
-          type: integer
-        aircraftseen:
-          title: Aircraftseen
-          type: integer
-        flightsamended:
-          title: Flightsamended
-          type: integer
-        handoffsinitiated:
-          title: Handoffsinitiated
-          type: integer
-        handoffsreceived:
-          title: Handoffsreceived
-          type: integer
-        handoffsrefused:
-          title: Handoffsrefused
-          type: integer
-        squawksassigned:
-          title: Squawksassigned
-          type: integer
-        cruisealtsmodified:
-          title: Cruisealtsmodified
-          type: integer
-        tempaltsmodified:
-          title: Tempaltsmodified
-          type: integer
-        scratchpadmods:
-          title: Scratchpadmods
-          type: integer
-      required:
-      - connection_id
-      - aircrafttracked
-      - aircraftseen
-      - flightsamended
-      - handoffsinitiated
-      - handoffsreceived
-      - handoffsrefused
-      - squawksassigned
-      - cruisealtsmodified
-      - tempaltsmodified
-      - scratchpadmods
-    Message:
-      title: Message
-      description: Requests that produce an error use this schema
-      type: object
-      properties:
-        message:
-          title: Message
-          type: string
-      required:
-      - message
-    Member:
-      title: Member
-      description: Only to be used for response validation as it is unprotected.
+    Connection:
+      title: Connection
       type: object
       properties:
         id:
           title: Id
           type: integer
-        name_first:
-          title: Name First
+        vatsim_id:
+          title: Vatsim Id
+          maxLength: 8
           type: string
-        name_last:
-          title: Name Last
-          type: string
-        email:
-          title: Email
-          type: string
-        countystate:
-          title: Countystate
-          type: string
-        country:
-          title: Country
-          type: string
+        type:
+          title: Type
+          type: integer
         rating:
           title: Rating
           type: integer
-        pilotrating:
-          title: Pilotrating
-          default: 0
-          type: integer
-        militaryrating:
-          title: Militaryrating
-          default: 0
-          type: integer
-        susp_date:
-          title: Susp Date
-          type: string
-          format: date-time
-        reg_date:
-          title: Reg Date
-          type: string
-          format: date-time
-        region_id:
-          title: Region Id
-          type: string
-        division_id:
-          title: Division Id
-          type: string
-        subdivision_id:
-          title: Subdivision Id
-          type: string
-        lastratingchange:
-          title: Lastratingchange
-          type: string
-          format: date-time
-      required:
-      - id
-      - countystate
-      - country
-      - rating
-      - reg_date
-      - region_id
-      - division_id
-    OnlineSchema:
-      title: OnlineSchema
-      type: object
-      properties:
-        id:
-          title: Id
-          type: integer
         callsign:
           title: Callsign
-          maxLength: 15
           type: string
         start:
           title: Start
+          type: string
+          format: date-time
+        end:
+          title: End
           type: string
           format: date-time
         server:
           title: Server
           maxLength: 20
           type: string
-        rating:
-          title: Rating
-          type: integer
-        fp:
-          $ref: '#/components/schemas/FlightPlans'
       required:
-      - start
+      - vatsim_id
+      - type
       - rating
-    NotFound:
-      title: NotFound
-      type: object
-      properties:
-        detail:
-          title: Detail
-          default: Not Found.
-          type: string
-    PagedConnection:
-      title: PagedConnection
-      type: object
-      properties:
-        items:
-          title: Items
-          type: array
-          items:
-            $ref: '#/components/schemas/Connection'
-        count:
-          title: Count
-          type: integer
-      required:
-      - items
-      - count
-    MemberUnrestricted:
-      title: MemberUnrestricted
-      description: Superuser schema - this can set suspended ratings and passwords.
-      type: object
-      properties:
-        name_first:
-          title: Name First
-          type: string
-        name_last:
-          title: Name Last
-          type: string
-        name_mothermaiden:
-          title: Name Mothermaiden
-          type: string
-        email:
-          title: Email
-          type: string
-        password:
-          title: Password
-          type: string
-        age:
-          title: Age
-          type: integer
-        countystate:
-          title: Countystate
-          type: string
-        country:
-          title: Country
-          type: string
-        rating:
-          title: Rating
-          type: integer
-        pilotrating:
-          title: Pilotrating
-          type: integer
-        militaryrating:
-          title: Militaryrating
-          type: integer
-        susp_date:
-          title: Susp Date
-          type: string
-          format: date-time
-        susp_prevrat:
-          title: Susp Prevrat
-          type: integer
-        region_id:
-          title: Region Id
-          type: string
-        division_id:
-          title: Division Id
-          type: string
-        subdivision_id:
-          title: Subdivision Id
-          type: string
-        lastregionxfer:
-          title: Lastregionxfer
-          type: string
-          format: date-time
-        lastratingchange:
-          title: Lastratingchange
-          type: string
-          format: date-time
-        comment:
-          title: Comment
-          type: string
+      - callsign
     FlightPlans:
       title: FlightPlans
       type: object
@@ -625,6 +426,114 @@ components:
       - hrsfuel
       - minsfuel
       - filed
+    PagedAtcSchema:
+      title: PagedAtcSchema
+      type: object
+      properties:
+        items:
+          title: Items
+          type: array
+          items:
+            $ref: '#/components/schemas/AtcSchema'
+        count:
+          title: Count
+          type: integer
+      required:
+      - items
+      - count
+    OnlineSchema:
+      title: OnlineSchema
+      type: object
+      properties:
+        id:
+          title: Id
+          type: integer
+        callsign:
+          title: Callsign
+          maxLength: 15
+          type: string
+        start:
+          title: Start
+          type: string
+          format: date-time
+        server:
+          title: Server
+          maxLength: 20
+          type: string
+        rating:
+          title: Rating
+          type: integer
+        fp:
+          $ref: '#/components/schemas/FlightPlans'
+      required:
+      - start
+      - rating
+    NotFound:
+      title: NotFound
+      type: object
+      properties:
+        detail:
+          title: Detail
+          default: Not Found.
+          type: string
+    Message:
+      title: Message
+      description: Requests that produce an error use this schema
+      type: object
+      properties:
+        message:
+          title: Message
+          type: string
+      required:
+      - message
+    AtcSchema:
+      title: AtcSchema
+      type: object
+      properties:
+        connection_id:
+          $ref: '#/components/schemas/Connection'
+        aircrafttracked:
+          title: Aircrafttracked
+          type: integer
+        aircraftseen:
+          title: Aircraftseen
+          type: integer
+        flightsamended:
+          title: Flightsamended
+          type: integer
+        handoffsinitiated:
+          title: Handoffsinitiated
+          type: integer
+        handoffsreceived:
+          title: Handoffsreceived
+          type: integer
+        handoffsrefused:
+          title: Handoffsrefused
+          type: integer
+        squawksassigned:
+          title: Squawksassigned
+          type: integer
+        cruisealtsmodified:
+          title: Cruisealtsmodified
+          type: integer
+        tempaltsmodified:
+          title: Tempaltsmodified
+          type: integer
+        scratchpadmods:
+          title: Scratchpadmods
+          type: integer
+      required:
+      - connection_id
+      - aircrafttracked
+      - aircraftseen
+      - flightsamended
+      - handoffsinitiated
+      - handoffsreceived
+      - handoffsrefused
+      - squawksassigned
+      - cruisealtsmodified
+      - tempaltsmodified
+      - scratchpadmods
     Stats:
       title: Stats
       type: object
@@ -685,43 +594,149 @@ components:
       - i3
       - sup
       - adm
-    Connection:
-      title: Connection
+    Member:
+      title: Member
+      description: Only to be used for response validation as it is unprotected.
       type: object
       properties:
         id:
           title: Id
           type: integer
-        vatsim_id:
-          title: Vatsim Id
-          maxLength: 8
+        name_first:
+          title: Name First
           type: string
-        type:
-          title: Type
-          type: integer
+        name_last:
+          title: Name Last
+          type: string
+        email:
+          title: Email
+          type: string
+        countystate:
+          title: Countystate
+          type: string
+        country:
+          title: Country
+          type: string
         rating:
           title: Rating
           type: integer
-        callsign:
-          title: Callsign
-          type: string
-        start:
-          title: Start
+        pilotrating:
+          title: Pilotrating
+          default: 0
+          type: integer
+        militaryrating:
+          title: Militaryrating
+          default: 0
+          type: integer
+        susp_date:
+          title: Susp Date
           type: string
           format: date-time
-        end:
-          title: End
+        reg_date:
+          title: Reg Date
           type: string
           format: date-time
-        server:
-          title: Server
-          maxLength: 20
+        region_id:
+          title: Region Id
           type: string
+        division_id:
+          title: Division Id
+          type: string
+        subdivision_id:
+          title: Subdivision Id
+          type: string
+        lastratingchange:
+          title: Lastratingchange
+          type: string
+          format: date-time
       required:
-      - vatsim_id
-      - type
+      - id
+      - countystate
+      - country
       - rating
-      - callsign
+      - reg_date
+      - region_id
+      - division_id
+    PagedConnection:
+      title: PagedConnection
+      type: object
+      properties:
+        items:
+          title: Items
+          type: array
+          items:
+            $ref: '#/components/schemas/Connection'
+        count:
+          title: Count
+          type: integer
+      required:
+      - items
+      - count
+    MemberUnrestricted:
+      title: MemberUnrestricted
+      description: Superuser schema - this can set suspended ratings and passwords.
+      type: object
+      properties:
+        name_first:
+          title: Name First
+          type: string
+        name_last:
+          title: Name Last
+          type: string
+        name_mothermaiden:
+          title: Name Mothermaiden
+          type: string
+        email:
+          title: Email
+          type: string
+        password:
+          title: Password
+          type: string
+        age:
+          title: Age
+          type: integer
+        countystate:
+          title: Countystate
+          type: string
+        country:
+          title: Country
+          type: string
+        rating:
+          title: Rating
+          type: integer
+        pilotrating:
+          title: Pilotrating
+          type: integer
+        militaryrating:
+          title: Militaryrating
+          type: integer
+        susp_date:
+          title: Susp Date
+          type: string
+          format: date-time
+        susp_prevrat:
+          title: Susp Prevrat
+          type: integer
+        region_id:
+          title: Region Id
+          type: string
+        division_id:
+          title: Division Id
+          type: string
+        subdivision_id:
+          title: Subdivision Id
+          type: string
+        lastregionxfer:
+          title: Lastregionxfer
+          type: string
+          format: date-time
+        lastratingchange:
+          title: Lastratingchange
+          type: string
+          format: date-time
+        comment:
+          title: Comment
+          type: string
     LimitedMemberSchema:
       title: LimitedMemberSchema
       type: object
@@ -767,21 +782,6 @@ components:
       - reg_date
       - region_id
       - division_id
-    PagedAtcSchema:
-      title: PagedAtcSchema
-      type: object
-      properties:
-        items:
-          title: Items
-          type: array
-          items:
-            $ref: '#/components/schemas/AtcSchema'
-        count:
-          title: Count
-          type: integer
-      required:
-      - items
-      - count
   securitySchemes:
     APIKeyAuth:
       type: apiKey
