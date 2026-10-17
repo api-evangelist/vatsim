@@ -101,48 +101,6 @@ components:
       - type
       - rating
       - callsign
-    OnlineSchema:
-      title: OnlineSchema
-      type: object
-      properties:
-        id:
-          title: Id
-          type: integer
-        callsign:
-          title: Callsign
-          maxLength: 15
-          type: string
-        start:
-          title: Start
-          type: string
-          format: date-time
-        server:
-          title: Server
-          maxLength: 20
-          type: string
-        rating:
-          title: Rating
-          type: integer
-        fp:
-          $ref: '#/components/schemas/FlightPlans'
-      required:
-      - start
-      - rating
-    PagedAtcSchema:
-      title: PagedAtcSchema
-      type: object
-      properties:
-        items:
-          title: Items
-          type: array
-          items:
-            $ref: '#/components/schemas/AtcSchema'
-        count:
-          title: Count
-          type: integer
-      required:
-      - items
-      - count
     AtcSchema:
       title: AtcSchema
       type: object
@@ -191,6 +149,21 @@ components:
       - cruisealtsmodified
       - tempaltsmodified
       - scratchpadmods
+    PagedAtcSchema:
+      title: PagedAtcSchema
+      type: object
+      properties:
+        items:
+          title: Items
+          type: array
+          items:
+            $ref: '#/components/schemas/AtcSchema'
+        count:
+          title: Count
+          type: integer
+      required:
+      - items
+      - count
     FlightPlans:
       title: FlightPlans
       type: object
@@ -291,6 +264,33 @@ components:
       - hrsfuel
       - minsfuel
       - filed
+    OnlineSchema:
+      title: OnlineSchema
+      type: object
+      properties:
+        id:
+          title: Id
+          type: integer
+        callsign:
+          title: Callsign
+          maxLength: 15
+          type: string
+        start:
+          title: Start
+          type: string
+          format: date-time
+        server:
+          title: Server
+          maxLength: 20
+          type: string
+        rating:
+          title: Rating
+          type: integer
+        fp:
+          $ref: '#/components/schemas/FlightPlans'
+      required:
+      - start
+      - rating
   securitySchemes:
     APIKeyAuth:
       type: apiKey

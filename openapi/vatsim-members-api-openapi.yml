@@ -326,6 +326,157 @@ components:
       - type
       - rating
       - callsign
+    PagedConnection:
+      title: PagedConnection
+      type: object
+      properties:
+        items:
+          title: Items
+          type: array
+          items:
+            $ref: '#/components/schemas/Connection'
+        count:
+          title: Count
+          type: integer
+      required:
+      - items
+      - count
+    NotFound:
+      title: NotFound
+      type: object
+      properties:
+        detail:
+          title: Detail
+          default: Not Found.
+          type: string
+    AtcSchema:
+      title: AtcSchema
+      type: object
+      properties:
+        connection_id:
+          $ref: '#/components/schemas/Connection'
+        aircrafttracked:
+          title: Aircrafttracked
+          type: integer
+        aircraftseen:
+          title: Aircraftseen
+          type: integer
+        flightsamended:
+          title: Flightsamended
+          type: integer
+        handoffsinitiated:
+          title: Handoffsinitiated
+          type: integer
+        handoffsreceived:
+          title: Handoffsreceived
+          type: integer
+        handoffsrefused:
+          title: Handoffsrefused
+          type: integer
+        squawksassigned:
+          title: Squawksassigned
+          type: integer
+        cruisealtsmodified:
+          title: Cruisealtsmodified
+          type: integer
+        tempaltsmodified:
+          title: Tempaltsmodified
+          type: integer
+        scratchpadmods:
+          title: Scratchpadmods
+          type: integer
+      required:
+      - connection_id
+      - aircrafttracked
+      - aircraftseen
+      - flightsamended
+      - handoffsinitiated
+      - handoffsreceived
+      - handoffsrefused
+      - squawksassigned
+      - cruisealtsmodified
+      - tempaltsmodified
+      - scratchpadmods
+    PagedAtcSchema:
+      title: PagedAtcSchema
+      type: object
+      properties:
+        items:
+          title: Items
+          type: array
+          items:
+            $ref: '#/components/schemas/AtcSchema'
+        count:
+          title: Count
+          type: integer
+      required:
+      - items
+      - count
+    MemberUnrestricted:
+      title: MemberUnrestricted
+      description: Superuser schema - this can set suspended ratings and passwords.
+      type: object
+      properties:
+        name_first:
+          title: Name First
+          type: string
+        name_last:
+          title: Name Last
+          type: string
+        name_mothermaiden:
+          title: Name Mothermaiden
+          type: string
+        email:
+          title: Email
+          type: string
+        password:
+          title: Password
+          type: string
+        age:
+          title: Age
+          type: integer
+        countystate:
+          title: Countystate
+          type: string
+        country:
+          title: Country
+          type: string
+        rating:
+          title: Rating
+          type: integer
+        pilotrating:
+          title: Pilotrating
+          type: integer
+        militaryrating:
+          title: Militaryrating
+          type: integer
+        susp_date:
+          title: Susp Date
+          type: string
+          format: date-time
+        susp_prevrat:
+          title: Susp Prevrat
+          type: integer
+        region_id:
+          title: Region Id
+          type: string
+        division_id:
+          title: Division Id
+          type: string
+        subdivision_id:
+          title: Subdivision Id
+          type: string
+        lastregionxfer:
+          title: Lastregionxfer
+          type: string
+          format: date-time
+        lastratingchange:
+          title: Lastratingchange
+          type: string
+          format: date-time
+        comment:
+          title: Comment
+          type: string
     FlightPlans:
       title: FlightPlans
       type: object
@@ -426,21 +577,6 @@ components:
       - hrsfuel
       - minsfuel
       - filed
-    PagedAtcSchema:
-      title: PagedAtcSchema
-      type: object
-      properties:
-        items:
-          title: Items
-          type: array
-          items:
-            $ref: '#/components/schemas/AtcSchema'
-        count:
-          title: Count
-          type: integer
-      required:
-      - items
-      - count
     OnlineSchema:
       title: OnlineSchema
       type: object
@@ -468,72 +604,6 @@ components:
       required:
       - start
       - rating
-    NotFound:
-      title: NotFound
-      type: object
-      properties:
-        detail:
-          title: Detail
-          default: Not Found.
-          type: string
-    Message:
-      title: Message
-      description: Requests that produce an error use this schema
-      type: object
-      properties:
-        message:
-          title: Message
-          type: string
-      required:
-      - message
-    AtcSchema:
-      title: AtcSchema
-      type: object
-      properties:
-        connection_id:
-          $ref: '#/components/schemas/Connection'
-        aircrafttracked:
-          title: Aircrafttracked
-          type: integer
-        aircraftseen:
-          title: Aircraftseen
-          type: integer
-        flightsamended:
-          title: Flightsamended
-          type: integer
-        handoffsinitiated:
-          title: Handoffsinitiated
-          type: integer
-        handoffsreceived:
-          title: Handoffsreceived
-          type: integer
-        handoffsrefused:
-          title: Handoffsrefused
-          type: integer
-        squawksassigned:
-          title: Squawksassigned
-          type: integer
-        cruisealtsmodified:
-          title: Cruisealtsmodified
-          type: integer
-        tempaltsmodified:
-          title: Tempaltsmodified
-          type: integer
-        scratchpadmods:
-          title: Scratchpadmods
-          type: integer
-      required:
-      - connection_id
-      - aircrafttracked
-      - aircraftseen
-      - flightsamended
-      - handoffsinitiated
-      - handoffsreceived
-      - handoffsrefused
-      - squawksassigned
-      - cruisealtsmodified
-      - tempaltsmodified
-      - scratchpadmods
     Stats:
       title: Stats
       type: object
@@ -657,86 +727,6 @@ components:
       - reg_date
       - region_id
       - division_id
-    PagedConnection:
-      title: PagedConnection
-      type: object
-      properties:
-        items:
-          title: Items
-          type: array
-          items:
-            $ref: '#/components/schemas/Connection'
-        count:
-          title: Count
-          type: integer
-      required:
-      - items
-      - count
-    MemberUnrestricted:
-      title: MemberUnrestricted
-      description: Superuser schema - this can set suspended ratings and passwords.
-      type: object
-      properties:
-        name_first:
-          title: Name First
-          type: string
-        name_last:
-          title: Name Last
-          type: string
-        name_mothermaiden:
-          title: Name Mothermaiden
-          type: string
-        email:
-          title: Email
-          type: string
-        password:
-          title: Password
-          type: string
-        age:
-          title: Age
-          type: integer
-        countystate:
-          title: Countystate
-          type: string
-        country:
-          title: Country
-          type: string
-        rating:
-          title: Rating
-          type: integer
-        pilotrating:
-          title: Pilotrating
-          type: integer
-        militaryrating:
-          title: Militaryrating
-          type: integer
-        susp_date:
-          title: Susp Date
-          type: string
-          format: date-time
-        susp_prevrat:
-          title: Susp Prevrat
-          type: integer
-        region_id:
-          title: Region Id
-          type: string
-        division_id:
-          title: Division Id
-          type: string
-        subdivision_id:
-          title: Subdivision Id
-          type: string
-        lastregionxfer:
-          title: Lastregionxfer
-          type: string
-          format: date-time
-        lastratingchange:
-          title: Lastratingchange
-          type: string
-          format: date-time
-        comment:
-          title: Comment
-          type: string
     LimitedMemberSchema:
       title: LimitedMemberSchema
       type: object
@@ -782,6 +772,16 @@ components:
       - reg_date
       - region_id
       - division_id
+    Message:
+      title: Message
+      description: Requests that produce an error use this schema
+      type: object
+      properties:
+        message:
+          title: Message
+          type: string
+      required:
+      - message
   securitySchemes:
     APIKeyAuth:
       type: apiKey

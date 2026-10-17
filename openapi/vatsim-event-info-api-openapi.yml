@@ -119,7 +119,53 @@ paths:
                 type: string
                 description: iCalendar file
 components:
+  responses:
+    ListEventsResponse:
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Event'
+    GetEventResponse:
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '#/components/schemas/Event'
   schemas:
+    Organiser:
+      type: object
+      properties:
+        region:
+          type:
+          - string
+          - 'null'
+          description: Region ID
+          example: AMAS
+        division:
+          type:
+          - string
+          - 'null'
+          description: Division ID
+          example: USA
+        subdivision:
+          type:
+          - string
+          - 'null'
+          description: Subdivision ID
+          example: null
+        organised_by_vatsim:
+          type: boolean
+          description: Whether the event is organised by VATSIM
+          example: false
     Event:
       type: object
       properties:
@@ -202,49 +248,3 @@ components:
           type: string
           description: Airport ICAO code
           example: KJFK
-    Organiser:
-      type: object
-      properties:
-        region:
-          type:
-          - string
-          - 'null'
-          description: Region ID
-          example: AMAS
-        division:
-          type:
-          - string
-          - 'null'
-          description: Division ID
-          example: USA
-        subdivision:
-          type:
-          - string
-          - 'null'
-          description: Subdivision ID
-          example: null
-        organised_by_vatsim:
-          type: boolean
-          description: Whether the event is organised by VATSIM
-          example: false
-  responses:
-    GetEventResponse:
-      description: Successful operation
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              data:
-                $ref: '#/components/schemas/Event'
-    ListEventsResponse:
-      description: Successful operation
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              data:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Event'

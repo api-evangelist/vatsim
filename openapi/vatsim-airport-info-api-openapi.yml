@@ -53,26 +53,6 @@ paths:
           $ref: '#/components/responses/NotFoundResponse'
 components:
   responses:
-    GetAirportResponse:
-      description: Successful operation
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              data:
-                $ref: '#/components/schemas/Airport'
-    ListAirportStationsResponse:
-      description: Successful operation
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              data:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Station'
     NotFoundResponse:
       description: Resource Not Found
       content:
@@ -84,7 +64,46 @@ components:
                 type: string
                 description: Message response
                 example: airport could not be found
+    ListAirportStationsResponse:
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Station'
+    GetAirportResponse:
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '#/components/schemas/Airport'
   schemas:
+    Station:
+      type: object
+      properties:
+        callsign:
+          type: string
+          description: Station callsign
+          example: JFK_TWR
+        name:
+          type: string
+          description: Station name
+          example: Kennedy Tower
+        frequency:
+          type: string
+          description: Station frequency
+          example: 119.1
+        ctaf:
+          type: boolean
+          description: True if the frequency should be used as CTAF when no ATC is online, false otherwise
+          example: true
     Airport:
       type: object
       properties:
@@ -137,22 +156,3 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Station'
-    Station:
-      type: object
-      properties:
-        callsign:
-          type: string
-          description: Station callsign
-          example: JFK_TWR
-        name:
-          type: string
-          description: Station name
-          example: Kennedy Tower
-        frequency:
-          type: string
-          description: Station frequency
-          example: 119.1
-        ctaf:
-          type: boolean
-          description: True if the frequency should be used as CTAF when no ATC is online, false otherwise
-          example: true
